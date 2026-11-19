@@ -1,4 +1,8 @@
 {
+  "framework": "vite",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
     { "source": "/datenschutz", "destination": "/index.html" },
     { "source": "/impressum", "destination": "/index.html" },

@@ -7,4 +7,5 @@ dist/
 *.tsbuildinfo
 .DS_Store
 artifacts/
+.vercel/
 .playwright/
