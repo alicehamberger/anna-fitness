@@ -35,7 +35,7 @@ Das Layout nutzt deutsche Texte und einheitliche Du-Ansprache. Der Paketpreis wi
 
 Die drei Stimmen tragen die erfundenen Vornamen **Anna, Sophia und Sarah**. Ein gemeinsamer Hinweis unter den Karten kennzeichnet sie als fiktive Beispielstimmen. `site.testimonials.enabled` blendet die gesamte Sektion aus. Vor einem echten Geschäftsstart mit freigegebenen, echten Erfahrungen ersetzen oder ausblenden.
 
-Die Fotografien zeigen Fotomodelle, keine echten Kundinnen und kein bestätigtes Porträt von Anna. Herkunft und Rechte bleiben hier und im Impressumsentwurf dokumentiert. Die Bildkonfiguration hält diesen Status intern fest.
+Die Trainingsfotografien zeigen ein Fotomodell, keine echte Kundin und kein bestätigtes Porträt von Anna. Die Küchenszene ist eine KI-bearbeitete Illustration mit dem Trainingsporträt als Personenreferenz. Herkunft und Bearbeitung bleiben hier und im Impressumsentwurf dokumentiert. Die Bildkonfiguration hält diesen Status intern fest.
 
 ## Kennenlernformular und Terminbuchung
 
@@ -70,23 +70,36 @@ Ein echter Anfrage-Endpunkt wäre eine separate Erweiterung mit serverseitiger P
 - Verfügbarkeit von Marke und Domain prüfen. Absolute Vorschau- und kanonische URLs für die tatsächliche Domain setzen.
 - Erst für einen echten öffentlichen Start die Suchmaschinen-Sperren in `index.html`, `vercel.json` und `public/robots.txt` entfernen. Diese Hinweise sind kein Zugriffsschutz.
 
-## Später veröffentlichen
+## Veröffentlichung
 
-Die Coaching-Website läuft bisher lokal; der verbundene Calendly-Buchungskalender ist separat öffentlich erreichbar. Für Vercel: Repository-Stammverzeichnis, Vite-Voreinstellung, Buildbefehl `npm run build`, Ausgabeverzeichnis `dist`. Andere statische Hoster benötigen entsprechende Seitenpfad-Umschreibungen. Der öffentliche Buchungslink benötigt keine API-Schlüssel im Frontend.
+Die Coaching-Website ist als Demo unter [formandflourish.vercel.app](https://formandflourish.vercel.app/) veröffentlicht. Vercel verwendet das Repository-Stammverzeichnis, die Vite-Voreinstellung, den Buildbefehl `npm run build` und das Ausgabeverzeichnis `dist`. Der verbundene Calendly-Buchungskalender ist separat öffentlich erreichbar und benötigt keine API-Schlüssel im Frontend.
 
 Der vollständige Quellcode liegt auf [GitHub: alicehamberger/anna-fitness](https://github.com/alicehamberger/anna-fitness). Die Produktionsquelle ist der Branch `main`. Node.js 22, `npm ci`, der Vite-Build und das Ausgabeverzeichnis `dist` sind für Vercel festgelegt; lokale Vercel-Konfiguration und Buildartefakte bleiben außerhalb der Versionsverwaltung.
 
 ## Bild- und Schriftlizenzen
 
-Die lokal gespeicherten Fotografien stammen von Pexels und verwenden die [Pexels-Lizenz](https://www.pexels.com/license/). Abgebildete Personen empfehlen diese Demo nicht.
+Die Ausgangsfotografien stammen von Pexels und verwenden die [Pexels-Lizenz](https://www.pexels.com/license/). Abgebildete Personen empfehlen diese Demo nicht.
 
-Die beiden Trainingsfotos zeigen dieselbe Frau in derselben Studioserie bei Tageslicht. Die Küchenaufnahme ergänzt den Alltagsschwerpunkt. Die Bilder wurden für die Website verkleinert und als WebP gespeichert; Gesicht und Körper wurden nicht verändert.
+Die beiden originalen Trainingsfotos zeigen dieselbe Frau in derselben Studioserie bei Tageslicht. Sie wurden nur verkleinert und als WebP gespeichert; Gesicht und Körper wurden nicht verändert. Die Küchenszene wurde dagegen mit dem integrierten OpenAI-Bildwerkzeug bearbeitet, um die Darstellung der Frau an das Trainingsporträt anzugleichen. Sie ist kein unverändertes Foto derselben Person beim Kochen und dokumentiert kein tatsächliches Ereignis.
 
 | Datei | Fotografie und Quelle |
 | ----- | --------------------- |
 | `public/images/training-daylight.webp` | Anastasia Shuraeva – [Langhanteltraining](https://www.pexels.com/photo/a-strong-woman-lifting-a-barbell-4944312/) |
 | `public/images/coach-natural.webp` | Anastasia Shuraeva – [Lächeln beim Aufwärmen](https://www.pexels.com/photo/photograph-of-a-woman-stretching-while-smiling-4943919/) |
-| `public/images/kitchen-everyday.webp` | Kamaji Ogino – [Kochen zu Hause](https://www.pexels.com/photo/woman-cooking-lunch-in-light-kitchen-5094661/) |
+| `public/images/kitchen-anna.webp` | KI-Bearbeitung mit dem integrierten OpenAI-Bildwerkzeug. Szenengrundlage: Kamaji Ogino – [Kochen zu Hause](https://www.pexels.com/photo/woman-cooking-lunch-in-light-kitchen-5094661/). Personenreferenz: Anastasia Shuraeva – [Trainingsporträt](https://www.pexels.com/photo/photograph-of-a-woman-stretching-while-smiling-4943919/). |
+
+<details>
+<summary>Bearbeitungsauftrag für die Küchenszene</summary>
+
+Werkzeug: integrierte Bildbearbeitung (`image_gen`), keine CLI-/API-Ausführung. Eingabe 1: `public/images/coach-natural.webp` als Personenreferenz. Eingabe 2: die vorherige `public/images/kitchen-everyday.webp` als Bearbeitungsziel. Die ausgegebene PNG-Datei wurde auf 1100 × 550 Pixel verkleinert und als `public/images/kitchen-anna.webp` gespeichert.
+
+Verwendeter Prompt:
+
+```text
+Use case: identity-preserve photographic edit for a fictional fitness-coaching website demo. Image 1 is the portrait reference for the woman; image 2 is the kitchen photograph to edit. Edit image 2, replacing its cooking woman with the brunette athletic woman from image 1. Preserve the reference woman's recognizable facial proportions, natural skin texture and small freckles/moles, brown hair and athletic build; tie her hair back casually. Give her the same plain off-white cotton T-shirt and simple grey trousers as the kitchen target, with realistic fabric wrinkles. Keep her cooking at the stove in the same position and scale, holding the pan and spatula naturally. Let a little of her three-quarter profile be visible as she looks down at her cooking, with a relaxed everyday expression. Preserve the kitchen, cream cupboards, tiled backsplash, dishes, stove and pan, blue doorway and out-of-focus foreground wall from image 2, with its existing perspective, gentle available light, slightly imperfect documentary grain and muted colors. Retain the original landscape composition and make it work when cropped to a wide 2:1 website thumbnail with the face and hands near the center. It should look like an ordinary candid home photograph, not an advertisement: no airbrushing, glamour makeup, artificial bokeh, dramatic color grading, spotless showroom kitchen, extra people, extra limbs, logos, lettering or watermarks. Do not change the gym reference photograph. Output only the edited kitchen photograph.
+```
+
+</details>
 
 DM Sans und DM Serif Display werden als lokale WOFF2-Dateien verwendet. Die unveränderten englischen SIL-Open-Font-Lizenztexte liegen in `public/fonts/`. Beim Seitenbesuch werden keine Schriften oder Bilder von Drittanbietern nachgeladen.
 

@@ -1136,9 +1136,13 @@ function LegalPage({ privacy }: { privacy: boolean }) {
           </p>
           <h2>Bilder und Beispielstimmen</h2>
           <p>
-            Die Bilder stammen von Pexels und zeigen Fotomodelle. Sie sind keine
-            echten Porträts von Anna oder Kundinnen und bedeuten keine
-            Empfehlung durch die abgebildeten Personen. Die Stimmen von Anna,
+            Die Trainingsfotos stammen von Anastasia Shuraeva auf Pexels und
+            zeigen ein Fotomodell. Die Küchenszene wurde mit KI bearbeitet:
+            Grundlage ist ein Pexels-Foto von Kamaji Ogino, die Trainingsfotos
+            dienten als Personenreferenz. Sie dokumentiert keine tatsächliche
+            Kochsituation. Die Bilder sind keine echten Porträts von Anna oder
+            Kundinnen und bedeuten keine Empfehlung durch die abgebildeten
+            Personen. Die Stimmen von Anna,
             Sophia und Sarah sind erfundene Beispiele für die Demo. Vor einem
             echten Geschäftsstart sind sie durch freigegebene echte Erfahrungen
             zu ersetzen oder auszublenden.

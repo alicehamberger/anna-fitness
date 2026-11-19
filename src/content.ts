@@ -71,10 +71,11 @@ export const site = {
       isPlaceholder: true,
     },
     lifestyle: {
-      src: "/images/kitchen-everyday.webp",
-      alt: "Eine Frau bereitet in ihrer Küche eine Mahlzeit zu",
+      // KI-bearbeitete Küchenszene; Ausgangsbilder und Bearbeitung sind dokumentiert.
+      src: "/images/kitchen-anna.webp",
+      alt: "Eine Frau kocht am Herd in einer kleinen Küche",
       width: 1100,
-      height: 750,
+      height: 550,
     },
   },
   hero: {
