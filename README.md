@@ -74,7 +74,7 @@ Ein echter Anfrage-Endpunkt wäre eine separate Erweiterung mit serverseitiger P
 
 Die Coaching-Website läuft bisher lokal; der verbundene Calendly-Buchungskalender ist separat öffentlich erreichbar. Für Vercel: Repository-Stammverzeichnis, Vite-Voreinstellung, Buildbefehl `npm run build`, Ausgabeverzeichnis `dist`. Andere statische Hoster benötigen entsprechende Seitenpfad-Umschreibungen. Der öffentliche Buchungslink benötigt keine API-Schlüssel im Frontend.
 
-Die GitHub-Adresse ist bereits als Remote hinterlegt: [alicehamberger/anna-fitness](https://github.com/alicehamberger/anna-fitness). Der Upload benötigt weiterhin eine schreibberechtigte GitHub-Anmeldung.
+Der vollständige Quellcode liegt auf [GitHub: alicehamberger/anna-fitness](https://github.com/alicehamberger/anna-fitness). Die Produktionsquelle ist der Branch `main`. Node.js 22, `npm ci`, der Vite-Build und das Ausgabeverzeichnis `dist` sind für Vercel festgelegt; lokale Vercel-Konfiguration und Buildartefakte bleiben außerhalb der Versionsverwaltung.
 
 ## Bild- und Schriftlizenzen
 
