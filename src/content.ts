@@ -49,10 +49,10 @@ export const site = {
     ],
   },
   booking: {
-    // Öffentlichen Buchungslink für Annas echten Kalender hier eintragen.
+    // Öffentlicher Calendly-Termin: 20 Minuten, Deutsch, Google Meet.
     // Mit gültiger HTTPS-Adresse ersetzt der echte Kalender das Demoformular.
     // Verfügbarkeit, Kontaktdaten und Bestätigung verarbeitet der Anbieter.
-    url: "",
+    url: "https://calendly.com/anna-k-99165/kostenloses-erstgesprach-mit-anna",
     noteMaxLength: 400,
   },
   images: {

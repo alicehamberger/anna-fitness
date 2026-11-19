@@ -39,6 +39,8 @@ Die Fotografien zeigen Fotomodelle, keine echten Kundinnen und kein bestätigtes
 
 ## Kennenlernformular und Terminbuchung
 
+**Aktiv verbunden:** [Kostenloses Erstgespräch mit Anna](https://calendly.com/anna-k-99165/kostenloses-erstgesprach-mit-anna). Der Termin ist kostenlos, dauert 20 Minuten, verwendet Deutsch und findet über das verbundene Google Meet statt. Er übernimmt die im Calendly-Konto vorhandenen Zeiten: Montag bis Freitag, 09:00–17:00 Uhr, Zeitzone Europe/Berlin. Änderungen an Arbeitszeiten und Kalenderkonflikten erfolgen direkt in Calendly.
+
 Alle primären Schaltflächen führen zu `/#intro-call`. Dort erscheint entweder der echte Buchungskalender oder, solange kein Anbieter konfiguriert ist, das ausdrücklich gekennzeichnete Demoformular.
 
 Ohne Buchungsadresse prüft die Demo die Eingaben nur im Browser, leert das Formular und fokussiert die Bestätigung. Es werden keine Angaben gesendet oder gespeichert, kein Termin gebucht und keine E-Mail verschickt. Der Browser kann unabhängig davon seine eigene automatische Vervollständigung anbieten.
@@ -47,7 +49,7 @@ In `site.booking.url` wird **Annas echte öffentliche HTTPS-Buchungsadresse** hi
 
 Bei gültiger Adresse ersetzt die Kalenderansicht das Demoformular vollständig: Nach „Freie Termine anzeigen“ lädt der echte Anbieter die verfügbaren Tage und Uhrzeiten. Name, E-Mail und weitere benötigte Angaben werden im Buchungskalender erfasst und dort bestätigt. Verfügbarkeiten, Zeitzonen, Reservierung, Konfliktprüfung und Bestätigung werden vom tatsächlichen Anbieter verwaltet. Es werden keine Termine lokal erfunden und keine Buchung durch einen bloßen Klick auf dieser Website bestätigt. Ein direkter Link bleibt für Anbieter verfügbar, die eine Einbettung nicht erlauben.
 
-Die Kalenderverbindung wird vor der bewussten Auswahl nicht geladen. Die Datenschutzseite passt ihre Beschreibung an den konfigurierten Modus an. Der Anbieter muss mit dem richtigen Kalender verbunden sein; Arbeitszeiten, Gesprächsdauer von 20 Minuten, Einladungsfragen, Zeitzone und Bestätigungen sind dort einzurichten und mit einer tatsächlichen Buchung zu prüfen. Ohne gültigen Link bleibt der Demomodus aktiv. Ein Google-Kalender-Zugriff über Codex allein stellt noch keine öffentliche Buchungsseite für Websitebesucher bereit.
+Die Kalenderverbindung wird vor der bewussten Auswahl nicht geladen. Die Datenschutzseite passt ihre Beschreibung an den konfigurierten Modus an. Der Anbieter muss mit dem richtigen Kalender verbunden sein; Arbeitszeiten, Einladungsfragen, Zeitzone und Bestätigungen sind dort zu pflegen. Ohne gültigen Link bleibt der Demomodus aktiv. Ein Google-Kalender-Zugriff über Codex allein stellt noch keine öffentliche Buchungsseite für Websitebesucher bereit.
 
 Die Einbettung nutzt ein normales Iframe ohne zusätzliche Anbieter-SDKs; siehe die [offizielle Calendly-Dokumentation zur Iframe-Einbettung](https://calendly.com/help/advanced-calendly-embed-for-developers). Es wird kein Buchungserfolg aus einem unbestätigten Browserereignis abgeleitet.
 
@@ -63,14 +65,14 @@ Ein echter Anfrage-Endpunkt wäre eine separate Erweiterung mit serverseitiger P
 - Echte Kundenstimmen mit Zustimmung einsetzen oder die Beispielstimmen ausblenden.
 - Kapazität für Auftaktgespräch, Trainingsplanprüfungen, wöchentliches Feedback, zweiwöchentliche Videogespräche, Technikfeedback und Nachrichtenbegleitung bestätigen.
 - Gesamtpreis, steuerliche Formulierung, Zahlungs-, Vertrags-, Kündigungs-, Erstattungs- und gegebenenfalls Widerrufsbedingungen klären.
-- Tatsächliche Terminbuchung anschließen und testen. Den Formularhinweis nur dann anpassen, wenn sich die Funktion wirklich geändert hat.
+- Einen eigenen Testtermin im verbundenen Buchungskalender auswählen und Bestätigung sowie Google-Meet-Link prüfen. Es wurde nicht ungefragt ein Testtermin erstellt oder eine Einladung verschickt.
 - Anbieteridentität, Rechtsform, Anschrift, Kontakt und gegebenenfalls Register-/Steuerangaben sowie tatsächliche Verarbeitungsdaten in Impressum und Datenschutz ergänzen.
 - Verfügbarkeit von Marke und Domain prüfen. Absolute Vorschau- und kanonische URLs für die tatsächliche Domain setzen.
 - Erst für einen echten öffentlichen Start die Suchmaschinen-Sperren in `index.html`, `vercel.json` und `public/robots.txt` entfernen. Diese Hinweise sind kein Zugriffsschutz.
 
 ## Später veröffentlichen
 
-Es wurde keine Website extern veröffentlicht. Für Vercel: Repository-Stammverzeichnis, Vite-Voreinstellung, Buildbefehl `npm run build`, Ausgabeverzeichnis `dist`. Andere statische Hoster benötigen entsprechende Seitenpfad-Umschreibungen. Eine Veröffentlichung aktiviert das Demoformular nicht automatisch.
+Die Coaching-Website läuft bisher lokal; der verbundene Calendly-Buchungskalender ist separat öffentlich erreichbar. Für Vercel: Repository-Stammverzeichnis, Vite-Voreinstellung, Buildbefehl `npm run build`, Ausgabeverzeichnis `dist`. Andere statische Hoster benötigen entsprechende Seitenpfad-Umschreibungen. Der öffentliche Buchungslink benötigt keine API-Schlüssel im Frontend.
 
 Die GitHub-Adresse ist bereits als Remote hinterlegt: [alicehamberger/anna-fitness](https://github.com/alicehamberger/anna-fitness). Der Upload benötigt weiterhin eine schreibberechtigte GitHub-Anmeldung.
 
@@ -89,3 +91,5 @@ DM Sans und DM Serif Display werden als lokale WOFF2-Dateien verwendet. Die unve
 ## Prüfung
 
 Build und Lint prüfen TypeScript, Produktionsausgabe und Codequalität. Die ursprüngliche englische Fassung wurde im Browser für Desktop und Mobilgeräte geprüft. Für die deutsche Überarbeitung wurden Texte, Seitenpfade, Medien und der erzeugte Build zusätzlich statisch geprüft; eine erneute visuelle Browserprüfung war ohne Browsersteuerung nicht verfügbar.
+
+Für die Calendly-Anbindung wurden der aktive, kostenfreie 20-Minuten-Termin, die deutsche Sprache, die Google-Meet-Verbindung und die übernommenen Verfügbarkeiten über Calendly bestätigt. Die Verfügbarkeitsabfrage für den 19.–26. November 2026 lieferte 80 buchbare Startzeiten. Diese Zeiten werden nicht in der Website gespeichert; der eingebettete Kalender lädt sie jeweils aktuell. Die eigentliche Terminbuchung und E-Mail-Zustellung wurden nicht durch einen Testtermin ausgelöst.
