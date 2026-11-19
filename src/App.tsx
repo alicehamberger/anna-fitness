@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 import { site } from "./content";
+import AppointmentScheduler from "./AppointmentScheduler";
 
 function Icon({ name, className = "" }: { name: string; className?: string }) {
   const paths: Record<string, ReactNode> = {
@@ -591,9 +592,6 @@ function Investment() {
           <p className="offer-duration">
             {site.offer.duration} persönliches 1:1-Coaching
           </p>
-          <p className="offer-price">
-            {site.offer.price} <span>{site.offer.priceQualifier}</span>
-          </p>
           <div className="investment-divider" />
           <p className="offer-summary">
             Individuelles Training & Ernährungsbegleitung
@@ -760,7 +758,7 @@ function Booking() {
   return (
     <section
       id="intro-call"
-      className="booking section"
+      className={`booking section ${bookingUrl ? "booking-live" : ""}`}
       aria-labelledby="booking-heading"
     >
       <div className="container booking-grid">
@@ -786,10 +784,7 @@ function Booking() {
           </div>
           <div className="booking-price">
             <span>{site.offer.name}</span>
-            <strong>
-              {site.offer.duration} persönliches 1:1-Coaching ·{" "}
-              {site.offer.price} {site.offer.priceQualifier}
-            </strong>
+            <strong>{site.offer.duration} persönliches 1:1-Coaching</strong>
           </div>
           <p className="booking-personal">
             Du musst nicht perfekt vorbereitet sein.
@@ -799,192 +794,188 @@ function Booking() {
           <Icon name="leaf" className="booking-leaf" />
         </div>
         <div className="booking-panel reveal">
-          <div className="form-mode">
-            <span className="demo-pill">
-              {bookingUrl ? "Dein Erstgespräch" : "Dein erster Schritt"}
-            </span>
-            <p>
-              {bookingUrl
-                ? "Im nächsten Schritt öffnest du die externe Terminbuchung. Deine Formularangaben werden hier weder gesendet noch gespeichert."
-                : "Demomodus: Deine Angaben bleiben im Browser. Es wird noch kein Termin gebucht."}
-            </p>
-          </div>
-          {complete ? (
-            <div
-              className="booking-success"
-              ref={success}
-              tabIndex={-1}
-              role="status"
-            >
-              <span className="success-icon">
-                <Icon name="check" />
-              </span>
-              <h3>
-                {bookingUrl
-                  ? "Jetzt kannst du einen Termin wählen."
-                  : "So einfach wäre der erste Schritt."}
-              </h3>
-              <p>
-                {bookingUrl
-                  ? "Deine Angaben wurden aus dem Formular entfernt. Öffne die Terminbuchung, um verfügbare Zeiten zu sehen und dein kostenloses Erstgespräch zu buchen. Hier wurde noch kein Termin reserviert."
-                  : "Deine Eingaben wurden geprüft und das Formular wurde geleert. In dieser Demo werden keine Angaben gesendet oder gespeichert. Es wurde weder ein Termin gebucht noch eine E-Mail verschickt."}
-              </p>
-              {bookingUrl && (
-                <a
-                  className="button button-primary"
-                  href={bookingUrl}
-                  rel="noreferrer"
-                >
-                  Termin auswählen
-                </a>
-              )}
-              {!bookingUrl && (
-                <p className="success-note">
-                  Die direkte Terminwahl wird verfügbar, sobald die Buchung
-                  eingerichtet ist.
-                </p>
-              )}
-              <button className="text-link" type="button" onClick={resetDemo}>
-                {bookingUrl
-                  ? "Zurück zum Formular"
-                  : "Noch einmal ausprobieren"}
-              </button>
-            </div>
+          {bookingUrl ? (
+            <AppointmentScheduler url={bookingUrl} />
           ) : (
-            <form onSubmit={onSubmit} noValidate>
-              {Object.keys(errors).length > 0 && (
-                <p className="form-error-summary" role="alert">
-                  Bitte prüfe die markierten Felder.
+            <>
+              <div className="form-mode">
+                <span className="demo-pill">Dein erster Schritt</span>
+                <p>
+                  Demomodus: Deine Angaben bleiben im Browser. Es wird noch kein
+                  Termin gebucht.
                 </p>
+              </div>
+              {complete ? (
+                <div
+                  className="booking-success"
+                  ref={success}
+                  tabIndex={-1}
+                  role="status"
+                >
+                  <span className="success-icon">
+                    <Icon name="check" />
+                  </span>
+                  <h3>So einfach wäre der erste Schritt.</h3>
+                  <p>
+                    Deine Eingaben wurden geprüft und das Formular wurde
+                    geleert. In dieser Demo werden keine Angaben gesendet oder
+                    gespeichert. Es wurde weder ein Termin gebucht noch eine
+                    E-Mail verschickt.
+                  </p>
+                  <p className="success-note">
+                    Die direkte Terminwahl wird verfügbar, sobald die Buchung
+                    eingerichtet ist.
+                  </p>
+                  <button
+                    className="text-link"
+                    type="button"
+                    onClick={resetDemo}
+                  >
+                    Noch einmal ausprobieren
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={onSubmit} noValidate>
+                  {Object.keys(errors).length > 0 && (
+                    <p className="form-error-summary" role="alert">
+                      Bitte prüfe die markierten Felder.
+                    </p>
+                  )}
+                  <div className="form-row">
+                    <div className="form-field">
+                      <label htmlFor="booking-name">
+                        Dein Name <span>(Pflichtfeld)</span>
+                      </label>
+                      <input
+                        id="booking-name"
+                        name="name"
+                        type="text"
+                        autoComplete="name"
+                        maxLength={80}
+                        required
+                        aria-invalid={!!errors.name}
+                        aria-describedby={
+                          errors.name ? "name-error" : undefined
+                        }
+                        placeholder="Wie darf ich dich nennen?"
+                      />
+                      {errorFor("name")}
+                    </div>
+                    <div className="form-field">
+                      <label htmlFor="booking-email">
+                        E-Mail-Adresse <span>(Pflichtfeld)</span>
+                      </label>
+                      <input
+                        id="booking-email"
+                        name="email"
+                        type="email"
+                        autoComplete="email"
+                        maxLength={254}
+                        required
+                        aria-invalid={!!errors.email}
+                        aria-describedby={
+                          errors.email ? "email-error" : undefined
+                        }
+                        placeholder="du@beispiel.de"
+                      />
+                      {errorFor("email")}
+                    </div>
+                  </div>
+                  <div className="form-field">
+                    <label htmlFor="booking-goal">
+                      Was ist dein wichtigstes Ziel? <span>(Pflichtfeld)</span>
+                    </label>
+                    <div className="select-wrap">
+                      <select
+                        name="goal"
+                        id="booking-goal"
+                        defaultValue=""
+                        required
+                        aria-invalid={!!errors.goal}
+                        aria-describedby={
+                          errors.goal ? "goal-error" : undefined
+                        }
+                      >
+                        <option value="" disabled>
+                          Was möchtest du erreichen?
+                        </option>
+                        <option value="weight-management">
+                          Mit mehr Flexibilität abnehmen
+                        </option>
+                        <option value="strength">
+                          Stärker und sicherer trainieren
+                        </option>
+                        <option value="consistency">
+                          Eine feste Routine entwickeln
+                        </option>
+                        <option value="exploring">
+                          Meinen passenden Weg finden
+                        </option>
+                      </select>
+                      <Icon name="chevron" />
+                    </div>
+                    {errorFor("goal")}
+                  </div>
+                  <div className="form-field">
+                    <label htmlFor="booking-setting">
+                      Wo möchtest du trainieren? <span>(Pflichtfeld)</span>
+                    </label>
+                    <div className="select-wrap">
+                      <select
+                        name="setting"
+                        id="booking-setting"
+                        defaultValue=""
+                        required
+                        aria-invalid={!!errors.setting}
+                        aria-describedby={
+                          errors.setting ? "setting-error" : undefined
+                        }
+                      >
+                        <option value="" disabled>
+                          Wähle deinen Trainingsort
+                        </option>
+                        <option value="gym">Im Fitnessstudio</option>
+                        <option value="home">Zu Hause</option>
+                        <option value="both">Zu Hause und im Studio</option>
+                        <option value="unsure">Das weiß ich noch nicht</option>
+                      </select>
+                      <Icon name="chevron" />
+                    </div>
+                    {errorFor("setting")}
+                  </div>
+                  <div className="form-field">
+                    <label htmlFor="booking-note">
+                      Was möchtest du mir noch mitgeben?{" "}
+                      <span>(freiwillig)</span>
+                    </label>
+                    <textarea
+                      id="booking-note"
+                      name="note"
+                      rows={3}
+                      maxLength={site.booking.noteMaxLength}
+                      aria-invalid={!!errors.note}
+                      aria-describedby={`note-hint${errors.note ? " note-error" : ""}`}
+                      placeholder="Zum Beispiel etwas über deinen Alltag oder deine Wünsche …"
+                    />
+                    <p className="field-hint" id="note-hint">
+                      Höchstens {site.booking.noteMaxLength} Zeichen. Bitte
+                      keine medizinischen oder anderen sensiblen Angaben.
+                    </p>
+                    {errorFor("note")}
+                  </div>
+                  <button
+                    type="submit"
+                    className="button button-primary form-submit"
+                  >
+                    Kennenlernen ausprobieren
+                  </button>
+                  <p className="form-privacy">
+                    Kostenlos · Unverbindlich ·{" "}
+                    <a href="/datenschutz">Datenschutz</a>
+                  </p>
+                </form>
               )}
-              <div className="form-row">
-                <div className="form-field">
-                  <label htmlFor="booking-name">
-                    Dein Name <span>(Pflichtfeld)</span>
-                  </label>
-                  <input
-                    id="booking-name"
-                    name="name"
-                    type="text"
-                    autoComplete="name"
-                    maxLength={80}
-                    required
-                    aria-invalid={!!errors.name}
-                    aria-describedby={errors.name ? "name-error" : undefined}
-                    placeholder="Wie darf ich dich nennen?"
-                  />
-                  {errorFor("name")}
-                </div>
-                <div className="form-field">
-                  <label htmlFor="booking-email">
-                    E-Mail-Adresse <span>(Pflichtfeld)</span>
-                  </label>
-                  <input
-                    id="booking-email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    maxLength={254}
-                    required
-                    aria-invalid={!!errors.email}
-                    aria-describedby={errors.email ? "email-error" : undefined}
-                    placeholder="du@beispiel.de"
-                  />
-                  {errorFor("email")}
-                </div>
-              </div>
-              <div className="form-field">
-                <label htmlFor="booking-goal">
-                  Was ist dein wichtigstes Ziel? <span>(Pflichtfeld)</span>
-                </label>
-                <div className="select-wrap">
-                  <select
-                    name="goal"
-                    id="booking-goal"
-                    defaultValue=""
-                    required
-                    aria-invalid={!!errors.goal}
-                    aria-describedby={errors.goal ? "goal-error" : undefined}
-                  >
-                    <option value="" disabled>
-                      Was möchtest du erreichen?
-                    </option>
-                    <option value="weight-management">
-                      Mit mehr Flexibilität abnehmen
-                    </option>
-                    <option value="strength">
-                      Stärker und sicherer trainieren
-                    </option>
-                    <option value="consistency">
-                      Eine feste Routine entwickeln
-                    </option>
-                    <option value="exploring">
-                      Meinen passenden Weg finden
-                    </option>
-                  </select>
-                  <Icon name="chevron" />
-                </div>
-                {errorFor("goal")}
-              </div>
-              <div className="form-field">
-                <label htmlFor="booking-setting">
-                  Wo möchtest du trainieren? <span>(Pflichtfeld)</span>
-                </label>
-                <div className="select-wrap">
-                  <select
-                    name="setting"
-                    id="booking-setting"
-                    defaultValue=""
-                    required
-                    aria-invalid={!!errors.setting}
-                    aria-describedby={
-                      errors.setting ? "setting-error" : undefined
-                    }
-                  >
-                    <option value="" disabled>
-                      Wähle deinen Trainingsort
-                    </option>
-                    <option value="gym">Im Fitnessstudio</option>
-                    <option value="home">Zu Hause</option>
-                    <option value="both">Zu Hause und im Studio</option>
-                    <option value="unsure">Das weiß ich noch nicht</option>
-                  </select>
-                  <Icon name="chevron" />
-                </div>
-                {errorFor("setting")}
-              </div>
-              <div className="form-field">
-                <label htmlFor="booking-note">
-                  Was möchtest du mir noch mitgeben? <span>(freiwillig)</span>
-                </label>
-                <textarea
-                  id="booking-note"
-                  name="note"
-                  rows={3}
-                  maxLength={site.booking.noteMaxLength}
-                  aria-invalid={!!errors.note}
-                  aria-describedby={`note-hint${errors.note ? " note-error" : ""}`}
-                  placeholder="Zum Beispiel etwas über deinen Alltag oder deine Wünsche …"
-                />
-                <p className="field-hint" id="note-hint">
-                  Höchstens {site.booking.noteMaxLength} Zeichen. Bitte keine
-                  medizinischen oder anderen sensiblen Angaben.
-                </p>
-                {errorFor("note")}
-              </div>
-              <button
-                type="submit"
-                className="button button-primary form-submit"
-              >
-                {bookingUrl
-                  ? "Weiter zur Terminwahl"
-                  : "Kennenlernen ausprobieren"}
-              </button>
-              <p className="form-privacy">
-                Kostenlos · Unverbindlich ·{" "}
-                <a href="/datenschutz">Datenschutz</a>
-              </p>
-            </form>
+            </>
           )}
         </div>
       </div>
@@ -1023,6 +1014,7 @@ function Footer() {
 }
 
 function LegalPage({ privacy }: { privacy: boolean }) {
+  const bookingUrl = getBookingUrl();
   useEffect(() => {
     document.title = `${privacy ? "Datenschutz" : "Impressum"} | Form & Flourish von Anna`;
   }, [privacy]);
@@ -1041,15 +1033,26 @@ function LegalPage({ privacy }: { privacy: boolean }) {
       {privacy ? (
         <>
           <h2>Deine Angaben im Formular</h2>
-          <p>
-            Das Kennenlernformular prüft deine Eingaben ausschließlich im
-            Browser und leert sich nach erfolgreicher Prüfung. Es übermittelt
-            keine Angaben an einen Server, speichert sie nicht im
-            Browserspeicher und löst weder eine Terminbuchung noch eine E-Mail
-            aus. Nicht abgeschickter Text bleibt bis zum Leeren oder Neuladen im
-            geöffneten Formular. Dein Browser kann unabhängig davon eine eigene
-            automatische Vervollständigung anbieten.
-          </p>
+          {bookingUrl ? (
+            <p>
+              Für echte Terminbuchungen wird nach deinem Klick der Kalender des
+              verbundenen Buchungsanbieters geladen. Dort wählst du einen
+              Termin, gibst deine Kontaktdaten ein und bestätigst deine Buchung.
+              Die Buchungsdaten werden vom Anbieter verarbeitet. Die Website
+              führt dafür keinen eigenen Formularspeicher und legt keine Kopie
+              deiner Angaben an.
+            </p>
+          ) : (
+            <p>
+              Das Kennenlernformular prüft deine Eingaben ausschließlich im
+              Browser und leert sich nach erfolgreicher Prüfung. Es übermittelt
+              keine Angaben an einen Server, speichert sie nicht im
+              Browserspeicher und löst weder eine Terminbuchung noch eine E-Mail
+              aus. Nicht abgeschickter Text bleibt bis zum Leeren oder Neuladen
+              im geöffneten Formular. Dein Browser kann unabhängig davon eine
+              eigene automatische Vervollständigung anbieten.
+            </p>
+          )}
           <h2>Technische Bereitstellung</h2>
           <p>
             Diese Website bindet keine Analysewerkzeuge, Werbetracker oder
@@ -1059,14 +1062,30 @@ function LegalPage({ privacy }: { privacy: boolean }) {
             IP-Adressen, in eigenen Protokollen verarbeiten.
           </p>
           <h2>Externe Terminbuchung</h2>
-          <p>
-            Aktuell ist kein Buchungsanbieter verbunden. Wird später ein
-            Anbieter eingerichtet, öffnet die Terminwahl über einen externen
-            Link. Die Angaben aus diesem Formular werden nicht an den Link
-            angehängt. Für die Verarbeitung beim jeweiligen Anbieter gelten
-            dessen Informationen, die vor einer echten Nutzung geprüft und hier
-            berücksichtigt werden müssen.
-          </p>
+          {bookingUrl ? (
+            <p>
+              Der Buchungskalender ist unter{" "}
+              <a className="text-link" href={bookingUrl} rel="noreferrer">
+                {new URL(bookingUrl).hostname}
+              </a>{" "}
+              erreichbar. Die eingebettete Terminwahl stellt erst nach deinem
+              Klick eine Verbindung zum Anbieter her. Dabei können technische
+              Zugriffsdaten sowie die von dir eingegebenen Buchungsdaten
+              verarbeitet werden. Es gelten die Angaben des jeweiligen
+              Anbieters. Du kannst die Buchung alternativ in einem neuen Tab
+              öffnen. Eine Buchung ist erst nach der Bestätigung beim Anbieter
+              abgeschlossen.
+            </p>
+          ) : (
+            <p>
+              Aktuell ist kein Buchungsanbieter verbunden. Wird später ein
+              Anbieter eingerichtet, öffnet die Terminwahl über einen externen
+              Link. Die Angaben aus diesem Formular werden nicht an den Link
+              angehängt. Für die Verarbeitung beim jeweiligen Anbieter gelten
+              dessen Informationen, die vor einer echten Nutzung geprüft und
+              hier berücksichtigt werden müssen.
+            </p>
+          )}
           <h2>Vor dem Betrieb zu ergänzen</h2>
           <ul>
             <li>
@@ -1097,9 +1116,8 @@ function LegalPage({ privacy }: { privacy: boolean }) {
           <p>
             Form & Flourish von Anna ist eine fiktive Coaching-Marke für diese
             Website-Demo. Die Flourish-Methode wird als sechsmonatiges
-            1:1-Coaching für insgesamt 4.000 € gezeigt. Das kostenlose
-            Erstgespräch ist davon getrennt und begründet keine
-            Kaufverpflichtung.
+            persönliches 1:1-Coaching gezeigt. Das kostenlose Erstgespräch ist
+            davon getrennt und begründet keine Kaufverpflichtung.
           </p>
           <h2>Unternehmensangaben</h2>
           <p>

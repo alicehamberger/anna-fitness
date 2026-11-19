@@ -21,14 +21,15 @@ npm run preview  # Fertigen Build lokal ansehen
 
 ## Inhalte bearbeiten
 
-- `src/content.ts`: Marke, Angebot, Preis, alle neun Leistungsbausteine, Bilder, Wochenplan, Ablauf, Beispielstimmen, Philosophie, Qualifikationen, häufige Fragen und Buchungsadresse.
+- `src/content.ts`: Marke, Angebot, alle neun Leistungsbausteine, Bilder, Wochenplan, Ablauf, Beispielstimmen, Philosophie, Qualifikationen, häufige Fragen und Buchungsadresse.
 - `src/App.tsx`: Seitenaufbau, kurze Oberflächentexte, mobile Navigation, Fragen-Akkordeon, Formularprüfung und rechtliche Entwürfe.
+- `src/AppointmentScheduler.tsx`: eingebetteter Buchungskalender mit bewusstem Laden und einem direkten Ausweichlink zum Anbieter.
 - `src/styles.css`: Farben, lokale Schriften, responsives Layout, Tastaturfokus und reduzierte Bewegung.
 - `index.html`: deutsche Spracheinstellung, Seitentitel, Beschreibung und Vorschaumetadaten.
 - `public/images/` und `public/fonts/`: lokale, austauschbare Medien.
 - `public/social-preview.svg`: bearbeitbare Grafik für die Linkvorschau; die deutsche JPEG-Fassung liegt daneben.
 
-Das Layout nutzt deutsche Texte, einheitliche Du-Ansprache und **4.000 € gesamt** als Preisformat. Die auffällige Konzeptleiste und die Stockfoto-Bildunterschriften sind entfernt. Ein dezenter Demohinweis bleibt im Footer; der Buchungsstatus wird direkt am Formular erklärt.
+Das Layout nutzt deutsche Texte und einheitliche Du-Ansprache. Der Paketpreis wird auf der Website nicht angezeigt; Konditionen werden im Erstgespräch besprochen. Die auffällige Konzeptleiste und die Stockfoto-Bildunterschriften sind entfernt. Ein dezenter Demohinweis bleibt im Footer; der Buchungsstatus wird direkt am Formular erklärt.
 
 ## Beispielstimmen und Bilder
 
@@ -38,11 +39,17 @@ Die Fotografien zeigen Fotomodelle, keine echten Kundinnen und kein bestätigtes
 
 ## Kennenlernformular und Terminbuchung
 
-Alle primären Schaltflächen führen zu `/#intro-call`. Abgefragt werden Name, E-Mail-Adresse, Hauptziel, Trainingsort und eine freiwillige, kurze Nachricht ohne sensible Angaben.
+Alle primären Schaltflächen führen zu `/#intro-call`. Dort erscheint entweder der echte Buchungskalender oder, solange kein Anbieter konfiguriert ist, das ausdrücklich gekennzeichnete Demoformular.
 
 Ohne Buchungsadresse prüft die Demo die Eingaben nur im Browser, leert das Formular und fokussiert die Bestätigung. Es werden keine Angaben gesendet oder gespeichert, kein Termin gebucht und keine E-Mail verschickt. Der Browser kann unabhängig davon seine eigene automatische Vervollständigung anbieten.
 
-In `site.booking.url` kann **eine echte HTTPS-Buchungsadresse** hinterlegt werden. Danach führt die Bestätigung zur externen Terminwahl. Auch in diesem Modus werden die Formularangaben nicht übertragen oder an den Link angehängt. Die tatsächliche Buchung erfolgt beim Anbieter. Ungültige oder nicht verschlüsselte Adressen lassen die Demo aktiv.
+In `site.booking.url` wird **Annas echte öffentliche HTTPS-Buchungsadresse** hinterlegt, beispielsweise ein konkreter Calendly-Termin oder eine öffentliche Google-Terminbuchungsseite. Keine API-Adresse, kein privater Kalenderzugang und keine Zugangsdaten eintragen.
+
+Bei gültiger Adresse ersetzt die Kalenderansicht das Demoformular vollständig: Nach „Freie Termine anzeigen“ lädt der echte Anbieter die verfügbaren Tage und Uhrzeiten. Name, E-Mail und weitere benötigte Angaben werden im Buchungskalender erfasst und dort bestätigt. Verfügbarkeiten, Zeitzonen, Reservierung, Konfliktprüfung und Bestätigung werden vom tatsächlichen Anbieter verwaltet. Es werden keine Termine lokal erfunden und keine Buchung durch einen bloßen Klick auf dieser Website bestätigt. Ein direkter Link bleibt für Anbieter verfügbar, die eine Einbettung nicht erlauben.
+
+Die Kalenderverbindung wird vor der bewussten Auswahl nicht geladen. Die Datenschutzseite passt ihre Beschreibung an den konfigurierten Modus an. Der Anbieter muss mit dem richtigen Kalender verbunden sein; Arbeitszeiten, Gesprächsdauer von 20 Minuten, Einladungsfragen, Zeitzone und Bestätigungen sind dort einzurichten und mit einer tatsächlichen Buchung zu prüfen. Ohne gültigen Link bleibt der Demomodus aktiv. Ein Google-Kalender-Zugriff über Codex allein stellt noch keine öffentliche Buchungsseite für Websitebesucher bereit.
+
+Die Einbettung nutzt ein normales Iframe ohne zusätzliche Anbieter-SDKs; siehe die [offizielle Calendly-Dokumentation zur Iframe-Einbettung](https://calendly.com/help/advanced-calendly-embed-for-developers). Es wird kein Buchungserfolg aus einem unbestätigten Browserereignis abgeleitet.
 
 Ein echter Anfrage-Endpunkt wäre eine separate Erweiterung mit serverseitiger Prüfung und passenden Datenschutzhinweisen. Zugangsdaten und andere Geheimnisse gehören nicht in den Frontendcode.
 

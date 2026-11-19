@@ -8,8 +8,6 @@ export const site = {
   offer: {
     name: "Die Flourish-Methode",
     duration: "Sechs Monate",
-    price: "4.000 €",
-    priceQualifier: "gesamt",
     introMinutes: 20,
     commitments: [
       {
@@ -51,8 +49,9 @@ export const site = {
     ],
   },
   booking: {
-    // Eine gültige HTTPS-Terminbuchungsadresse aktiviert den externen Link.
-    // Die Formularangaben werden auch dann weder übertragen noch gespeichert.
+    // Öffentlichen Buchungslink für Annas echten Kalender hier eintragen.
+    // Mit gültiger HTTPS-Adresse ersetzt der echte Kalender das Demoformular.
+    // Verfügbarkeit, Kontaktdaten und Bestätigung verarbeitet der Anbieter.
     url: "",
     noteMaxLength: 400,
   },
@@ -251,7 +250,7 @@ export const site = {
     {
       question: "Was kostet das Coaching?",
       answer:
-        "Die Flourish-Methode kostet insgesamt 4.000 € für sechs Monate persönliches 1:1-Coaching. Das kostenlose, 20-minütige Erstgespräch ist davon getrennt und verpflichtet dich zu nichts.",
+        "Die Konditionen für dein persönliches Coaching besprechen wir transparent im Erstgespräch. Das 20-minütige Kennenlernen ist kostenlos und verpflichtet dich zu nichts.",
     },
     {
       question: "Ist das Erstgespräch ein Verkaufsgespräch?",
