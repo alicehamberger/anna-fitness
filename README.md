@@ -1,73 +1,84 @@
-# Form & Flourish by Anna
+# Form & Flourish von Anna
 
-A responsive concept website for a fictional premium fitness coach. React, TypeScript and Vite with plain CSS, local fonts and photographs, and no backend services.
+Deutschsprachige, responsive Website-Demo für persönliches Fitness- und Ernährungscoaching. React, TypeScript und Vite; CSS ohne UI-Bibliothek. Bilder und Schriften liegen lokal, ein Backend ist nicht nötig.
 
-**Concept preview:** the six-month €4,000 offer and service commitments are proposed creative content. Anna’s identity, qualifications, capacity and commercial terms have not been verified. The intro form is a browser-only demo: it does not send, store or email entries or book appointments. Illustrative stories and placeholder photography are visibly labelled. No live website has been published.
+## Lokal starten
 
-## Run locally
-
-Use Node.js **22.12+** (Node 22 recommended) and npm.
+Voraussetzung: Node.js **22.12 oder neuer** und npm.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Open Vite’s printed Local URL, normally `http://127.0.0.1:5173/`. Stop with Ctrl+C.
+Öffne die von Vite ausgegebene Adresse, normalerweise `http://127.0.0.1:5173/`. Mit Strg+C beendest du den Server.
 
 ```sh
-npm run lint     # ESLint, including React hooks
-npm run build    # TypeScript checks and production output in dist/
-npm run preview  # Serve the production build locally
+npm run build    # TypeScript prüfen und Produktionsdateien in dist/ erstellen
+npm run lint     # ESLint einschließlich React-Hooks-Prüfung
+npm run preview  # Fertigen Build lokal ansehen
 ```
 
-## Editing
+## Inhalte bearbeiten
 
-- `src/content.ts`: brand, hero copy, price/duration, **all nine proposed service commitments**, images, method, example week, roadmap, illustrative stories, philosophy, optional verified qualifications, FAQs and booking URL.
-- `src/App.tsx`: page components, remaining short UI copy, accessible menu/FAQ, form validation and draft privacy/legal pages.
-- `src/styles.css`: palette, local fonts, layout, responsive breakpoints, focus states and reduced-motion support.
-- `public/images/`, `public/fonts/`: replaceable local assets. Update dimensions, alt text and placeholder flags in the configuration when replacing photos.
-- `index.html`, `public/favicon.svg`, `public/social-preview.svg`: metadata and original brand artwork.
+- `src/content.ts`: Marke, Angebot, Preis, alle neun Leistungsbausteine, Bilder, Wochenplan, Ablauf, Beispielstimmen, Philosophie, Qualifikationen, häufige Fragen und Buchungsadresse.
+- `src/App.tsx`: Seitenaufbau, kurze Oberflächentexte, mobile Navigation, Fragen-Akkordeon, Formularprüfung und rechtliche Entwürfe.
+- `src/styles.css`: Farben, lokale Schriften, responsives Layout, Tastaturfokus und reduzierte Bewegung.
+- `index.html`: deutsche Spracheinstellung, Seitentitel, Beschreibung und Vorschaumetadaten.
+- `public/images/` und `public/fonts/`: lokale, austauschbare Medien.
+- `public/social-preview.svg`: bearbeitbare Grafik für die Linkvorschau; die deutsche JPEG-Fassung liegt daneben.
 
-All primary booking links lead to `/#intro-call`. The form requests name, email, primary goal, preferred training setting and an optional short, non-sensitive note. It validates entries, resets the form and focuses the confirmation. No values are stored in React state, browser storage or URLs, and there is no submission request. A visitor’s browser may independently provide autofill.
+Das Layout nutzt deutsche Texte, einheitliche Du-Ansprache und **4.000 € gesamt** als Preisformat. Die auffällige Konzeptleiste und die Stockfoto-Bildunterschriften sind entfernt. Ein dezenter Demohinweis bleibt im Footer; der Buchungsstatus wird direkt am Formular erklärt.
 
-### Scheduling
+## Beispielstimmen und Bilder
 
-Set `site.booking.url` in `src/content.ts` to **one verified HTTPS booking URL** (the actual Calendly, GoHighLevel or other provider page). Empty, invalid or non-HTTPS URLs keep the form in demo mode. No provider is configured by default.
+Die drei Stimmen tragen die erfundenen Vornamen **Anna, Sophia und Sarah**. Ein gemeinsamer Hinweis unter den Karten kennzeichnet sie als fiktive Beispielstimmen. `site.testimonials.enabled` blendet die gesamte Sektion aus. Vor einem echten Geschäftsstart mit freigegebenen, echten Erfahrungen ersetzen oder ausblenden.
 
-With a valid URL, validation clears the form and shows an outbound scheduling link. **Fields still are not sent to Anna or forwarded to the provider.** Visitors complete their real booking at the provider; this site does not assert an appointment has been booked. A real enquiry endpoint is separate work, requiring suitable privacy information and server-side validation. Keep all secrets and credentials out of frontend code and source control.
+Die Fotografien zeigen Fotomodelle, keine echten Kundinnen und kein bestätigtes Porträt von Anna. Herkunft und Rechte bleiben hier und im Impressumsentwurf dokumentiert. Die Bildkonfiguration hält diesen Status intern fest.
 
-### Illustrative stories
+## Kennenlernformular und Terminbuchung
 
-`site.testimonials.enabled` controls the entire section. Each supplied original fictional example is labelled **“Illustrative example—not a client review”**. Set the flag to `false`, or replace the examples with consented, verified real testimonials and appropriate labels before a real business launch. There are no invented identities, results, review badges or client photos.
+Alle primären Schaltflächen führen zu `/#intro-call`. Abgefragt werden Name, E-Mail-Adresse, Hauptziel, Trainingsort und eine freiwillige, kurze Nachricht ohne sensible Angaben.
 
-## Before a real launch
+Ohne Buchungsadresse prüft die Demo die Eingaben nur im Browser, leert das Formular und fokussiert die Bestätigung. Es werden keine Angaben gesendet oder gespeichert, kein Termin gebucht und keine E-Mail verschickt. Der Browser kann unabhängig davon seine eigene automatische Vervollständigung anbieten.
 
-- Add Anna’s authorised photographs, verified qualifications and actual scope of practice; empty qualification fields are omitted. Hide fictional stories or replace them with consented real reviews. Confirm brand/domain/trademark availability.
-- Confirm service capacity: **one 60-minute onboarding call; training reviews every four weeks; weekly written check-ins; a 30-minute video call every two weeks; technique-video feedback; weekday messages with the proposed two-business-day response target; nutrition education within verified qualifications; progress tracking; and a final maintenance plan**.
-- Confirm the €4,000 total consumer price, tax wording, service terms, payment arrangements, cancellation/refund terms and applicable withdrawal rights. No financing or guarantee is assumed.
-- Connect and test actual scheduling. If enquiries must be delivered, implement and verify a real endpoint, processing and retention. Keep demo labels while the form is a demo.
-- Complete `/privacy` and `/legal` with verified business identity, legal form, postal/contact details, relevant registration/tax details, actual providers, processing purposes/legal bases, recipients, retention, rights, transfers and applicable local requirements. These are visibly **incomplete drafts**, not completed compliance.
-- Keep `site.conceptPreview` enabled until the business/demo status changes. Review all customer copy then, including price FAQ and legal pages.
-- Before a real public launch, remove the preview `noindex` tag in `index.html`, `X-Robots-Tag` in `vercel.json`, and `Disallow: /` in `public/robots.txt`. These are search instructions, **not access control**.
-- A 1200 × 630 social JPEG is included alongside its editable SVG. Configure absolute social-image, page and canonical URLs for the real domain before launch.
+In `site.booking.url` kann **eine echte HTTPS-Buchungsadresse** hinterlegt werden. Danach führt die Bestätigung zur externen Terminwahl. Auch in diesem Modus werden die Formularangaben nicht übertragen oder an den Link angehängt. Die tatsächliche Buchung erfolgt beim Anbieter. Ungültige oder nicht verschlüsselte Adressen lassen die Demo aktiv.
 
-## Deploy later
+Ein echter Anfrage-Endpunkt wäre eine separate Erweiterung mit serverseitiger Prüfung und passenden Datenschutzhinweisen. Zugangsdaten und andere Geheimnisse gehören nicht in den Frontendcode.
 
-No external deployment is needed for the local preview. When requested, import this repository into Vercel with the **Vite** preset, repository root, **`npm run build`** and output directory **`dist`**. `vercel.json` includes direct-visit rewrites for `/privacy` and `/legal`; other static hosts need equivalent route fallbacks. Deploying does not connect the demo form to a service.
+## Rechtliche Seiten
 
-## Assets and licences
+`/datenschutz` und `/impressum` sind auf Deutsch verfasst und innerhalb der Seiten als unvollständige Entwürfe markiert. Die früheren Pfade `/privacy` und `/legal` funktionieren weiterhin. Die erforderlichen Umschreibungen für Vercel stehen in `vercel.json`.
 
-The locally saved photographs use the [Pexels licence](https://www.pexels.com/license/). Stock subjects are not Anna or clients and do not endorse this concept.
+## Vor einem echten Start
 
-| File | Photographer and source |
-| --- | --- |
-| `public/images/training.jpg` | Joshua Brown — [A Woman Working Out at a Gym](https://www.pexels.com/photo/a-woman-working-out-at-a-gym-13197590/) |
-| `public/images/coach-placeholder.jpg` | Joshua Brown — [A Woman Holding Dumbbells](https://www.pexels.com/photo/a-woman-holding-dumbbells-13197592/) |
-| `public/images/everyday-food.jpg` | Ella Olsson — [Vegetable Salad on Plate](https://www.pexels.com/photo/flat-lay-photography-of-vegetable-salad-on-plate-1640777/) |
+- Annas Identität, eigene Fotos, fachliche Qualifikationen und Leistungsumfang prüfen und ergänzen. Es wurden keine Kontaktdaten, Zertifikate, Geschäftshistorie oder Ergebnisse erfunden.
+- Echte Kundenstimmen mit Zustimmung einsetzen oder die Beispielstimmen ausblenden.
+- Kapazität für Auftaktgespräch, Trainingsplanprüfungen, wöchentliches Feedback, zweiwöchentliche Videogespräche, Technikfeedback und Nachrichtenbegleitung bestätigen.
+- Gesamtpreis, steuerliche Formulierung, Zahlungs-, Vertrags-, Kündigungs-, Erstattungs- und gegebenenfalls Widerrufsbedingungen klären.
+- Tatsächliche Terminbuchung anschließen und testen. Den Formularhinweis nur dann anpassen, wenn sich die Funktion wirklich geändert hat.
+- Anbieteridentität, Rechtsform, Anschrift, Kontakt und gegebenenfalls Register-/Steuerangaben sowie tatsächliche Verarbeitungsdaten in Impressum und Datenschutz ergänzen.
+- Verfügbarkeit von Marke und Domain prüfen. Absolute Vorschau- und kanonische URLs für die tatsächliche Domain setzen.
+- Erst für einen echten öffentlichen Start die Suchmaschinen-Sperren in `index.html`, `vercel.json` und `public/robots.txt` entfernen. Diese Hinweise sind kein Zugriffsschutz.
 
-DM Sans and DM Serif Display are self-hosted WOFF2 files distributed through Fontsource. Their SIL Open Font License notices are included in `public/fonts/`. Visitors’ browsers do not request Google Fonts, Pexels or Fontsource.
+## Später veröffentlichen
 
-## Verification
+Es wurde keine Website extern veröffentlicht. Für Vercel: Repository-Stammverzeichnis, Vite-Voreinstellung, Buildbefehl `npm run build`, Ausgabeverzeichnis `dist`. Andere statische Hoster benötigen entsprechende Seitenpfad-Umschreibungen. Eine Veröffentlichung aktiviert das Demoformular nicht automatisch.
 
-`npm run build` and `npm run lint` check the production build, TypeScript and lint rules. Browser checks cover desktop/mobile layouts, menu open/close and Escape, FAQ expansion, form validation, successful demo confirmation and clearing, booking links, draft legal navigation, local assets, overflow and browser errors. This is a concept preview, not a verified live booking integration.
+Die GitHub-Adresse ist bereits als Remote hinterlegt: [alicehamberger/anna-fitness](https://github.com/alicehamberger/anna-fitness). Der Upload benötigt weiterhin eine schreibberechtigte GitHub-Anmeldung.
+
+## Bild- und Schriftlizenzen
+
+Die lokal gespeicherten Fotografien stammen von Pexels und verwenden die [Pexels-Lizenz](https://www.pexels.com/license/). Abgebildete Personen empfehlen diese Demo nicht.
+
+| Datei                                 | Fotografie und Quelle                                                                                                     |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `public/images/training.jpg`          | Joshua Brown – [Trainingsaufnahme](https://www.pexels.com/photo/a-woman-working-out-at-a-gym-13197590/)                   |
+| `public/images/coach-placeholder.jpg` | Joshua Brown – [Frau mit Kurzhanteln](https://www.pexels.com/photo/a-woman-holding-dumbbells-13197592/)                   |
+| `public/images/everyday-food.jpg`     | Ella Olsson – [Gemüse und Quinoa](https://www.pexels.com/photo/flat-lay-photography-of-vegetable-salad-on-plate-1640777/) |
+
+DM Sans und DM Serif Display werden als lokale WOFF2-Dateien verwendet. Die unveränderten englischen SIL-Open-Font-Lizenztexte liegen in `public/fonts/`. Beim Seitenbesuch werden keine Schriften oder Bilder von Drittanbietern nachgeladen.
+
+## Prüfung
+
+Build und Lint prüfen TypeScript, Produktionsausgabe und Codequalität. Die ursprüngliche englische Fassung wurde im Browser für Desktop und Mobilgeräte geprüft. Für die deutsche Überarbeitung wurden Texte, Seitenpfade, Medien und der erzeugte Build zusätzlich statisch geprüft; eine erneute visuelle Browserprüfung war ohne Browsersteuerung nicht verfügbar.

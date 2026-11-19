@@ -2803,3 +2803,88 @@ p {
     height: 27px;
   }
 }
+
+/* German copy has longer words and needs room in navigation and headings. */
+h1,
+h2,
+h3,
+.button,
+.commitment,
+.timeline-item {
+  overflow-wrap: break-word;
+}
+.main-nav > a {
+  white-space: nowrap;
+}
+.stories-note {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+.quote-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--forest);
+}
+.about-photo {
+  padding-bottom: 0;
+}
+.hero .eyebrow {
+  overflow-wrap: break-word;
+}
+@media (min-width: 761px) and (max-width: 950px) {
+  .investment-offer .offer-price {
+    font-size: 3.5rem;
+  }
+}
+@media (min-width: 761px) and (max-width: 1024px) {
+  .menu-toggle {
+    display: flex;
+  }
+  .main-nav {
+    display: none;
+    position: absolute;
+    inset: 94px 0 auto;
+    background: var(--ivory);
+    border-block: 1px solid var(--line);
+    padding: 20px 36px;
+    box-shadow: 0 12px 20px #183d350d;
+  }
+  .main-nav.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .main-nav > a:not(.button) {
+    font-size: 1rem;
+    padding: 14px 5px;
+    border-bottom: 1px solid #d8d9cd80;
+  }
+  .main-nav > a:not(.button)::after {
+    display: none;
+  }
+  .main-nav .nav-book {
+    font-size: 0.875rem;
+    margin-top: 17px;
+    min-height: 49px;
+  }
+}
+@media (max-width: 760px) {
+  .hero-actions {
+    gap: 18px 20px;
+  }
+  .mobile-booking .button {
+    padding-inline: 18px;
+  }
+  .mobile-booking > span {
+    min-width: 0;
+  }
+  .footer-bottom nav {
+    flex-wrap: wrap;
+  }
+  .form-field label > span {
+    white-space: nowrap;
+  }
+}

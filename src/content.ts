@@ -1,250 +1,267 @@
-// All business details below are proposed creative content, not verified facts.
-// Confirm service capacity, qualifications, price and legal terms before launch.
+// Deutschsprachige Demo. Angebot, Namen und Stimmen sind fiktive Inhalte.
+// Vor einem echten Start Leistungen, Kapazität und Geschäftsangaben bestätigen.
 export const site = {
   brand: "Form & Flourish",
-  byline: "by Anna",
-  tagline: "Stronger. More confident. More you.",
+  byline: "von Anna",
+  tagline: "Stärker. Selbstbewusster. Mehr du.",
   conceptPreview: true,
   offer: {
-    name: "The Flourish Method",
-    duration: "Six months",
-    price: "€4,000",
-    priceQualifier: "total",
+    name: "Die Flourish-Methode",
+    duration: "Sechs Monate",
+    price: "4.000 €",
+    priceQualifier: "gesamt",
     introMinutes: 20,
     commitments: [
       {
-        title: "A thoughtful starting point",
-        text: "One 60-minute onboarding and goal-setting call to understand your life, your goals and where you’re starting.",
+        title: "Ein guter Anfang",
+        text: "Ein 60-minütiges Auftaktgespräch, in dem wir deine Ziele, deinen Alltag und deinen Ausgangspunkt kennenlernen.",
       },
       {
-        title: "Training that evolves with you",
-        text: "An individual home or gym plan, reviewed every four weeks and adjusted as needed.",
+        title: "Training, das mit dir wächst",
+        text: "Dein individueller Trainingsplan für zu Hause oder das Studio. Alle vier Wochen überprüfen wir ihn und passen ihn bei Bedarf an.",
       },
       {
-        title: "Practical nutrition guidance",
-        text: "Personalised nutrition education and habit guidance within the coach’s qualifications.",
+        title: "Ernährung, die zu dir passt",
+        text: "Persönliche Orientierung zu Ernährung und Gewohnheiten – alltagstauglich und im Rahmen der fachlichen Qualifikation.",
       },
       {
-        title: "A weekly moment to reset",
-        text: "One written check-in each week, with personalised feedback and clear next steps.",
+        title: "Ein Rückblick pro Woche",
+        text: "Ein schriftlicher Wochenrückblick mit persönlichem Feedback und konkreten nächsten Schritten.",
       },
       {
-        title: "Real conversations, regularly",
-        text: "One 30-minute 1:1 video coaching call every two weeks.",
+        title: "Zeit für echte Gespräche",
+        text: "Alle zwei Wochen ein persönliches, 30-minütiges Coaching per Video.",
       },
       {
-        title: "Confidence in your technique",
-        text: "Individual exercise-technique feedback on the videos you choose to submit.",
+        title: "Mehr Sicherheit bei den Übungen",
+        text: "Individuelles Technikfeedback zu den Trainingsvideos, die du mir schickst.",
       },
       {
-        title: "Support between check-ins",
-        text: "Weekday messaging support, with a proposed response target of two business days.",
+        title: "Auch zwischendurch für dich da",
+        text: "Nachrichtenbegleitung an Werktagen. Mein Antwortziel: innerhalb von zwei Werktagen.",
       },
       {
-        title: "Your plan, in one place",
-        text: "A simple place to view your training and track the progress we agree matters to you.",
+        title: "Alles an einem Ort",
+        text: "Dein Trainingsplan und die Fortschritte, die wir gemeinsam festlegen, bleiben übersichtlich und leicht zugänglich.",
       },
       {
-        title: "A plan for what comes next",
-        text: "A final maintenance plan to help you continue independently after our six months together.",
+        title: "Dein Plan für danach",
+        text: "Zum Abschluss entwickeln wir einen Plan, mit dem du eigenständig weitermachen kannst.",
       },
     ],
   },
   booking: {
-    // Set one HTTPS provider URL to enable outbound scheduling.
-    // The form still does not transmit or store its fields; no query-string PII.
+    // Eine gültige HTTPS-Terminbuchungsadresse aktiviert den externen Link.
+    // Die Formularangaben werden auch dann weder übertragen noch gespeichert.
     url: "",
     noteMaxLength: 400,
   },
   images: {
     hero: {
       src: "/images/training.jpg",
-      alt: "An adult woman training with dumbbells in a gym",
+      alt: "Eine Frau trainiert mit Kurzhanteln in einem Fitnessstudio",
       width: 1100,
       height: 1650,
     },
     anna: {
       src: "/images/coach-placeholder.jpg",
-      alt: "Stock model holding dumbbells in a gym; a placeholder for Anna’s own photograph",
+      alt: "Eine Frau beim Krafttraining mit Kurzhanteln",
       width: 1000,
       height: 1500,
+      // Bildherkunft bleibt dokumentiert, ohne Bildunterschrift im Layout.
       isPlaceholder: true,
     },
     lifestyle: {
       src: "/images/everyday-food.jpg",
-      alt: "A colourful, everyday meal with vegetables",
+      alt: "Eine bunte Mahlzeit mit Gemüse und Quinoa",
       width: 900,
       height: 600,
     },
   },
   hero: {
-    eyebrow: "Personal fitness & weight-loss coaching",
-    heading: ["Lose weight.", "Get stronger.", "Leave all-or-nothing behind."],
+    eyebrow: "Persönliches Fitness- & Abnehmcoaching",
+    heading: [
+      "Abnehmen.",
+      "Stärker werden.",
+      "Lass Alles-oder-nichts hinter dir.",
+    ],
     description:
-      "Personalised training, practical nutrition and six months of support to help you lose weight, grow stronger and feel more confident—without making fitness your whole life.",
+      "Individuelles Training, alltagstaugliche Ernährung und sechs Monate persönliche Begleitung. Damit du abnehmen, stärker werden und dich wohler fühlen kannst – ohne dein ganzes Leben um Fitness zu drehen.",
     strip: [
-      "6 months",
-      "Personalised training",
-      "Weekly check-ins",
-      "Direct support",
+      "6 Monate",
+      "Individuelles Training",
+      "Wöchentliches Feedback",
+      "Persönliche Begleitung",
     ],
   },
   recognition: [
     {
-      title: "A busy week shouldn’t undo your plan.",
-      text: "When life fills up, we simplify your routine and work out what’s realistic for the week ahead.",
+      title: "Eine volle Woche muss deinen Plan nicht kippen.",
+      text: "Wenn viel zusammenkommt, vereinfachen wir deine Routine und schauen gemeinsam, was gerade realistisch ist.",
     },
     {
-      title: "You deserve to feel at home in the gym.",
-      text: "Know what to do, how to do it and how to progress, with a plan matched to your starting point.",
+      title: "Du darfst dich im Studio sicher fühlen.",
+      text: "Du weißt, was du trainierst, wie die Übungen funktionieren und wie du dich steigern kannst. Passend zu deinem Ausgangspunkt.",
     },
     {
-      title: "Eating well can leave room for living.",
-      text: "Build useful meal habits and flexible choices, without a new list of strict food rules.",
+      title: "Gut essen und das Leben genießen passen zusammen.",
+      text: "Wir entwickeln hilfreiche Mahlzeitenroutinen und flexible Entscheidungen – ohne die nächste Liste strenger Essensregeln.",
     },
   ],
   pillars: [
     {
       icon: "strength",
-      title: "Train with purpose.",
-      text: "Progressive strength training, adapted to your experience, equipment and schedule. A clear plan, with room to grow.",
-      detail: "Your starting point. Your pace.",
+      title: "Mit Plan trainieren.",
+      text: "Schrittweise stärker werden. Dein Krafttraining richtet sich nach deiner Erfahrung, deiner Ausstattung und deinem Zeitplan.",
+      detail: "Dein Einstieg. Dein Tempo.",
     },
     {
       icon: "leaf",
-      title: "Eat with flexibility.",
-      text: "Practical nutrition education, meal structure and everyday choices, with an individual approach to your weight-management goals.",
-      detail: "Real food. A real life.",
+      title: "Flexibel essen.",
+      text: "Ernährung verstehen, Mahlzeiten sinnvoll gestalten und im Alltag passende Entscheidungen treffen. Mit einem individuellen Blick auf deine Ziele.",
+      detail: "Gutes Essen. Platz fürs Leben.",
     },
     {
       icon: "sun",
-      title: "Build consistency.",
-      text: "Weekly reflection and problem-solving to find routines that hold up through busy weeks, travel and social occasions.",
-      detail: "More practice. Less perfection.",
+      title: "Dranbleiben lernen.",
+      text: "Wöchentlich gemeinsam reflektieren, Lösungen finden und Routinen entwickeln, die auch in volle Wochen, auf Reisen und zu Einladungen passen.",
+      detail: "Mehr Übung. Weniger Perfektion.",
     },
   ],
   exampleWeek: [
     {
-      day: "MON",
-      name: "Full-body strength",
-      detail: "Session 01 · Gym",
+      day: "MO",
+      name: "Ganzkörpertraining",
+      detail: "Einheit 01 · Studio",
       icon: "strength",
     },
     {
-      day: "WED",
-      name: "Full-body strength",
-      detail: "Session 02 · Gym",
+      day: "MI",
+      name: "Ganzkörpertraining",
+      detail: "Einheit 02 · Studio",
       icon: "strength",
     },
     {
-      day: "FRI",
-      name: "Full-body strength",
-      detail: "Session 03 · Gym",
+      day: "FR",
+      name: "Ganzkörpertraining",
+      detail: "Einheit 03 · Studio",
       icon: "strength",
     },
     {
-      day: "SUN",
-      name: "Your weekly check-in",
-      detail: "Reflect, adjust, move forward",
+      day: "SO",
+      name: "Dein Wochenrückblick",
+      detail: "Reflektieren, anpassen, weitergehen",
       icon: "message",
     },
   ],
   roadmap: [
     {
-      period: "Month 1",
-      title: "Find your foundations.",
-      text: "Get to know your starting point and build a realistic training and food routine.",
+      period: "Monat 1",
+      title: "Deine Basis finden.",
+      text: "Wir lernen deinen Ausgangspunkt kennen und bauen eine realistische Trainings- und Ernährungsroutine auf.",
     },
     {
-      period: "Months 2–3",
-      title: "Find your rhythm.",
-      text: "Practise consistently, reflect on what’s working and adjust training and nutrition together.",
+      period: "Monate 2–3",
+      title: "Deinen Rhythmus finden.",
+      text: "Regelmäßig üben, gemeinsam reflektieren und Training und Ernährung so anpassen, dass sie zu dir passen.",
     },
     {
-      period: "Months 4–5",
-      title: "Grow through real life.",
-      text: "Progress your training and learn to adapt around busy weeks, travel and changing priorities.",
+      period: "Monate 4–5",
+      title: "Mit dem Alltag wachsen.",
+      text: "Dein Training weiterentwickeln und lernen, mit vollen Wochen, Reisen und veränderten Prioritäten umzugehen.",
     },
     {
-      period: "Month 6",
-      title: "Make it your own.",
-      text: "Consolidate your habits and create a maintenance plan for your next chapter.",
+      period: "Monat 6",
+      title: "Deinen Weg weitergehen.",
+      text: "Gewohnheiten festigen und einen Plan für die Zeit nach unserem Coaching entwickeln.",
     },
   ],
   testimonials: {
     enabled: true,
-    label: "Illustrative example—not a client review",
-    // Replace with consented, verified reviews, or set enabled: false before launch.
+    label: "Fiktive Beispielstimmen für diese Demo.",
+    // Namen und Aussagen sind erfunden. Vor einem echten Start ersetzen oder ausblenden.
     quotes: [
-      "I used to abandon the whole week after missing one session. Having a simpler plan helped me find a way back.",
-      "I wanted support with weight loss, but I also wanted to feel less lost in the gym. Learning how to progress made training feel much more manageable.",
-      "The check-ins helped me adapt around work and travel instead of waiting for a perfect week.",
+      {
+        name: "Anna",
+        quote:
+          "Früher war für mich die ganze Woche gelaufen, wenn ich ein Training verpasst hatte. Mit einem einfacheren Plan finde ich viel leichter wieder rein.",
+      },
+      {
+        name: "Sophia",
+        quote:
+          "Ich wollte abnehmen, mich aber auch im Studio sicherer fühlen. Zu verstehen, wie ich mich steigern kann, hat mein Training viel greifbarer gemacht.",
+      },
+      {
+        name: "Sarah",
+        quote:
+          "Die Wochenrückblicke haben mir geholfen, meinen Plan an Arbeit und Reisen anzupassen, statt immer auf die perfekte Woche zu warten.",
+      },
     ],
   },
   about: {
-    heading: "Your plan matters. So does the person beside you.",
+    heading: "Dein Plan zählt. Wer dich begleitet, auch.",
     paragraphs: [
-      "I believe a useful plan starts with the life you actually have. Your work, your energy, the things you enjoy and the time you can make for yourself.",
-      "My approach brings practical strength training, flexible food choices and supportive accountability together. We’ll pay attention to what’s working, talk honestly about what isn’t and make changes together.",
-      "You don’t need to have it all figured out. We just need a place to begin.",
+      "Ich glaube, ein guter Plan beginnt mit dem Leben, das du wirklich führst. Mit deiner Arbeit, deiner Energie, den Dingen, die dir Freude machen, und der Zeit, die du für dich findest.",
+      "Bei mir kommen durchdachtes Krafttraining, flexible Ernährung und persönliche Begleitung zusammen. Wir schauen hin, was funktioniert, sprechen offen über Hürden und passen deinen Weg gemeinsam an.",
+      "Du musst noch nicht alle Antworten haben. Wir brauchen nur einen Anfang.",
     ],
-    // Only add qualifications after verification. Empty fields are not displayed.
+    // Nur nach Prüfung echte Qualifikationen ergänzen. Leere Felder bleiben unsichtbar.
     verifiedQualifications: [] as string[],
   },
   gettingStarted: [
     {
-      title: "Tell me a little about you.",
-      text: "Share a few details about your goals and how you like to train.",
+      title: "Erzähl mir von dir.",
+      text: "Teile ein paar Gedanken zu deinen Zielen und dazu, wie du gerne trainieren möchtest.",
     },
     {
-      title: "Find time for a conversation.",
-      text: "Choose a free 20-minute intro call when live scheduling is configured.",
+      title: "Nimm dir Zeit zum Kennenlernen.",
+      text: "Im kostenlosen, 20-minütigen Erstgespräch ist Platz für deine Fragen und einen ersten gemeinsamen Blick auf deinen Alltag.",
     },
     {
-      title: "See if we’re a good fit.",
-      text: "Talk through your goals and schedule. If we both choose to continue, I’ll explain the package, terms and next steps. There’s no obligation to buy.",
+      title: "Schau, ob es für dich passt.",
+      text: "Wir besprechen deine Ziele und deinen Zeitplan. Wenn wir beide weitermachen möchten, erkläre ich dir das Paket, die Konditionen und die nächsten Schritte. Ganz ohne Kaufverpflichtung.",
     },
   ],
   faqs: [
     {
-      question: "Is this suitable for beginners?",
+      question: "Ist das Coaching auch für Anfängerinnen geeignet?",
       answer:
-        "Yes. Your starting point shapes the plan. We can begin with the basics, build your confidence with exercises and progress at a pace that suits you.",
+        "Ja. Dein Ausgangspunkt bestimmt den Plan. Wir können mit den Grundlagen beginnen, Sicherheit bei den Übungen aufbauen und uns in deinem Tempo steigern.",
     },
     {
-      question: "Do I need a gym?",
+      question: "Brauche ich ein Fitnessstudio?",
       answer:
-        "No. Your training can be built for home or a gym, using the equipment available to you. We’ll discuss what is practical on the intro call.",
+        "Nein. Dein Training kann zu Hause oder im Studio stattfinden, mit der Ausstattung, die dir zur Verfügung steht. Was für dich sinnvoll ist, besprechen wir im Erstgespräch.",
     },
     {
-      question: "How much time will training take?",
+      question: "Wie viel Zeit brauche ich für das Training?",
       answer:
-        "That depends on your starting point, goals and schedule. We agree a realistic number and length of sessions together, then adjust when life changes. The example week on this page is illustrative, not a required schedule.",
+        "Das hängt von deinen Zielen, deinem Ausgangspunkt und deinem Alltag ab. Wir vereinbaren gemeinsam eine realistische Anzahl und Dauer der Einheiten und passen sie bei Bedarf an. Die Beispielwoche auf dieser Seite ist kein Pflichtprogramm.",
     },
     {
-      question: "Will I have to track calories?",
+      question: "Muss ich Kalorien zählen?",
       answer:
-        "Not necessarily. The nutrition approach is individualised. We can explore meal structure, habits and everyday choices, and discuss tracking only if it is appropriate and useful for you.",
+        "Nicht unbedingt. Wir wählen die Ernährungsstrategie individuell. Mahlzeitenstruktur, Gewohnheiten und Entscheidungen im Alltag können im Mittelpunkt stehen. Kalorienzählen besprechen wir nur, wenn es für dich passend und hilfreich ist.",
     },
     {
-      question: "What support do I receive?",
+      question: "Welche Begleitung bekomme ich?",
       answer:
-        "The proposed package includes weekly written check-ins with feedback, a 30-minute video call every two weeks, training reviews every four weeks, technique feedback and weekday messaging with a proposed response target of two business days.",
+        "Du bekommst wöchentliche schriftliche Rückblicke mit persönlichem Feedback, alle zwei Wochen ein 30-minütiges Videogespräch, Trainingsplan-Überprüfungen alle vier Wochen und Technikfeedback. Dazu kommt Nachrichtenbegleitung an Werktagen mit einem Antwortziel von zwei Werktagen.",
     },
     {
-      question: "How much does it cost?",
+      question: "Was kostet das Coaching?",
       answer:
-        "The Flourish Method is €4,000 total for six months of individual coaching. The free 20-minute intro call is separate from paid coaching and does not commit you to joining. This is a concept offer; final commercial terms will be confirmed before trading.",
+        "Die Flourish-Methode kostet insgesamt 4.000 € für sechs Monate persönliches 1:1-Coaching. Das kostenlose, 20-minütige Erstgespräch ist davon getrennt und verpflichtet dich zu nichts.",
     },
     {
-      question: "Is the intro call a sales call?",
+      question: "Ist das Erstgespräch ein Verkaufsgespräch?",
       answer:
-        "It is a conversation about your goals, schedule and whether coaching could be a good fit. We may discuss the paid package and next steps, but there’s no obligation to buy.",
+        "Wir sprechen über deine Ziele, deinen Alltag und darüber, ob mein Coaching zu dir passt. Dabei können wir auch das kostenpflichtige Paket und mögliche nächste Schritte besprechen. Du musst dich nicht entscheiden und nichts kaufen.",
     },
     {
-      question: "What if I have an injury or medical condition?",
+      question: "Was ist bei Verletzungen oder Erkrankungen?",
       answer:
-        "Coaching does not provide medical diagnosis or treatment. Depending on your circumstances, advice or clearance from an appropriate healthcare professional may be needed before training or nutrition changes. Please don’t include medical information in this short intro form.",
+        "Coaching ersetzt keine medizinische Diagnose oder Behandlung. Je nach Situation kann vor Änderungen an Training oder Ernährung eine ärztliche oder andere geeignete fachliche Einschätzung nötig sein. Bitte teile im kurzen Erstkontaktformular keine medizinischen Angaben.",
     },
   ],
 } as const;

@@ -62,21 +62,21 @@ function Wordmark({ inverse = false }: { inverse?: boolean }) {
     <a
       className={`wordmark ${inverse ? "wordmark-light" : ""}`}
       href="/"
-      aria-label="Form & Flourish by Anna, home"
+      aria-label="Form & Flourish von Anna, Startseite"
     >
       <Icon name="leaf" />
       <span>
         <span className="wordmark-name">
           Form <span className="ampersand">&</span> Flourish
         </span>
-        <span className="wordmark-byline">BY ANNA</span>
+        <span className="wordmark-byline">VON ANNA</span>
       </span>
     </a>
   );
 }
 
 function BookLink({
-  children = "Book a free intro call",
+  children = "Kostenloses Erstgespräch",
   className = "",
   light = false,
 }: {
@@ -98,10 +98,10 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
   const links = [
-    ["The Method", "method"],
-    ["What You Get", "included"],
-    ["About Anna", "about"],
-    ["FAQ", "faq"],
+    ["Die Methode", "method"],
+    ["Leistungen", "included"],
+    ["Über Anna", "about"],
+    ["Fragen", "faq"],
   ];
   useEffect(() => {
     if (!menuOpen) return;
@@ -118,21 +118,15 @@ function Header() {
   return (
     <>
       <a className="skip-link" href="#main">
-        Skip to content
+        Zum Inhalt springen
       </a>
-      {site.conceptPreview && (
-        <div className="concept-bar">
-          A coaching concept by Anna <span aria-hidden="true">·</span> Preview
-          website & demo booking
-        </div>
-      )}
       <header className="site-header">
         <div className="container header-inner">
           <Wordmark />
           <nav
             className={`main-nav ${menuOpen ? "is-open" : ""}`}
             id="main-navigation"
-            aria-label="Main navigation"
+            aria-label="Hauptnavigation"
           >
             {links.map(([label, id]) => (
               <a href={`/#${id}`} key={id} onClick={() => setMenuOpen(false)}>
@@ -144,7 +138,7 @@ function Header() {
               href="/#intro-call"
               onClick={() => setMenuOpen(false)}
             >
-              Book a free intro call
+              Kostenloses Erstgespräch
             </a>
           </nav>
           <button
@@ -153,7 +147,7 @@ function Header() {
             type="button"
             aria-expanded={menuOpen}
             aria-controls="main-navigation"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <Icon name={menuOpen ? "close" : "menu"} />
@@ -191,12 +185,12 @@ function Hero() {
           <div className="hero-actions">
             <BookLink />
             <a href="#method" className="text-link">
-              Explore the coaching
+              Coaching entdecken
               <span className="link-line" />
             </a>
           </div>
           <p className="booking-microcopy">
-            20 minutes <span>·</span> Free <span>·</span> No obligation
+            20 Minuten <span>·</span> Kostenlos <span>·</span> Unverbindlich
           </p>
         </div>
         <figure className="hero-visual">
@@ -207,17 +201,14 @@ function Hero() {
           <div className="photo-note">
             <Icon name="leaf" />
             <span>
-              Built around
+              Passt zu dir.
               <br />
-              <strong>your real life.</strong>
+              <strong>Und deinem Alltag.</strong>
             </span>
           </div>
           <div className="hero-side-note" aria-hidden="true">
-            A LITTLE STRONGER. A LITTLE MORE YOU.
+            EIN BISSCHEN STÄRKER. EIN BISSCHEN MEHR DU.
           </div>
-          <figcaption className="photo-caption">
-            Stock training image · Concept preview
-          </figcaption>
         </figure>
       </section>
       <div className="offer-strip">
@@ -244,19 +235,19 @@ function Recognition() {
     >
       <div className="container recognition-grid">
         <div className="reveal">
-          <Eyebrow>A different way forward</Eyebrow>
+          <Eyebrow>Ein Weg, der zu dir passt</Eyebrow>
           <h2 id="recognition-heading">
-            You know how to start.
+            Anfangen kennst du.
             <br />
             <em>
-              Let’s make it easier
+              Machen wir es leichter,
               <br />
-              to keep going.
+              dranzubleiben.
             </em>
           </h2>
           <p className="section-intro">
-            You don’t need another fresh start. You need an approach that makes
-            space for being human.
+            Dein Plan darf zu deinem Leben passen. Auch dann, wenn die Woche
+            anders läuft als gedacht.
           </p>
           <div className="small-flourish" aria-hidden="true">
             <Icon name="leaf" />
@@ -278,7 +269,8 @@ function Recognition() {
         </div>
       </div>
       <p className="recognition-bridge container">
-        A clear plan. Regular adjustments. <span>Someone in your corner.</span>
+        Ein klarer Plan. Regelmäßige Anpassungen.{" "}
+        <span>Jemand an deiner Seite.</span>
       </p>
     </section>
   );
@@ -294,17 +286,17 @@ function Method() {
       <div className="container">
         <div className="section-heading reveal">
           <div>
-            <Eyebrow light>The Flourish Method</Eyebrow>
+            <Eyebrow light>Die Flourish-Methode</Eyebrow>
             <h2 id="method-heading">
-              Less all-or-nothing.
+              Weniger Alles-oder-nichts.
               <br />
-              <em>More of what works for you.</em>
+              <em>Mehr von dem, was zu dir passt.</em>
             </h2>
           </div>
           <p>
-            Three connected pillars. One individual plan.
+            Drei Bausteine. Dein persönlicher Plan.
             <br />
-            Built with you, then adapted as life happens.
+            Gemeinsam entwickelt. An deinen Alltag angepasst.
           </p>
         </div>
         <div className="pillar-grid">
@@ -323,7 +315,7 @@ function Method() {
         <div className="method-bottom">
           <Icon name="leaf" />
           <p>
-            Stronger. More confident. <em>More you.</em>
+            Stärker. Selbstbewusster. <em>Mehr du.</em>
           </p>
         </div>
       </div>
@@ -336,48 +328,51 @@ function WeekPreview() {
     <section className="week-section section" aria-labelledby="week-heading">
       <div className="container week-grid">
         <div className="week-copy reveal">
-          <Eyebrow>Clarity, week by week</Eyebrow>
+          <Eyebrow>Klarheit für deine Woche</Eyebrow>
           <h2 id="week-heading">
-            A plan you can see.
+            Dein Plan im Blick.
             <br />
-            <em>Support you can feel.</em>
+            <em>Begleitung, die du spürst.</em>
           </h2>
           <p>
-            Open your plan and know your next step. Your sessions, a small habit
-            to practise and a check-in to keep the conversation going.
+            Du öffnest deinen Plan und weißt, was als Nächstes ansteht. Deine
+            Einheiten, eine kleine Gewohnheit zum Üben und ein gemeinsamer Blick
+            auf deine Woche.
           </p>
           <p>
-            Some weeks we build. Some weeks we simplify. Your plan should move
-            with you.
+            Manche Wochen geben wir mehr. In anderen machen wir es einfacher.
+            Dein Plan darf sich mit deinem Leben verändern.
           </p>
           <a className="text-link" href="#included">
-            See what’s included
+            Alle Leistungen ansehen
             <span className="link-line" />
           </a>
           <figure className="lifestyle-photo">
             <img {...site.images.lifestyle} loading="lazy" decoding="async" />
-            <figcaption>Room for everyday food. And everyday life.</figcaption>
+            <figcaption>
+              Platz für gutes Essen. Und fürs echte Leben.
+            </figcaption>
           </figure>
         </div>
         <div
           className="dashboard reveal"
-          aria-label="Illustrative weekly coaching dashboard"
+          aria-label="Beispiel für einen persönlichen Wochenplan"
         >
           <div className="dashboard-top">
             <span className="dashboard-brand">
-              <Icon name="leaf" /> YOUR FLOURISH PLAN
+              <Icon name="leaf" /> DEIN FLOURISH-PLAN
             </span>
-            <span className="demo-pill">Example week</span>
+            <span className="demo-pill">Beispielwoche</span>
           </div>
           <div className="dashboard-title">
             <div>
-              <p>A little structure. A lot of possibility.</p>
-              <h3>Your week, at a glance.</h3>
+              <p>Ein bisschen Struktur. Viele Möglichkeiten.</p>
+              <h3>Deine Woche im Überblick.</h3>
             </div>
             <Icon name="sun" />
           </div>
           <div className="dashboard-days" aria-hidden="true">
-            {["M", "T", "W", "T", "F", "S", "S"].map((day, i) => (
+            {["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"].map((day, i) => (
               <span
                 className={[0, 2, 4, 6].includes(i) ? "active" : ""}
                 key={i}
@@ -404,15 +399,14 @@ function WeekPreview() {
           <div className="habit-focus">
             <Icon name="leaf" />
             <div>
-              <span>THIS WEEK’S HABIT FOCUS</span>
-              <strong>Make space for a proper lunch.</strong>
-              <p>A small step to practise, not a rule to perfect.</p>
+              <span>DEIN FOKUS FÜR DIESE WOCHE</span>
+              <strong>Nimm dir Zeit fürs Mittagessen.</strong>
+              <p>Eine kleine Gewohnheit. Kein neuer Anspruch an Perfektion.</p>
             </div>
           </div>
           <p className="dashboard-disclaimer">
-            Illustrative coaching preview. Your plan and sessions are
-            individualised; this is not a universal prescription or a client
-            record.
+            Eine Beispielwoche zur Orientierung. Deine Einheiten und Wochenziele
+            stimmen wir individuell auf dich ab.
           </p>
         </div>
       </div>
@@ -430,16 +424,17 @@ function Included() {
       <div className="container">
         <div className="section-heading reveal">
           <div>
-            <Eyebrow>Individual attention. Thoughtful support.</Eyebrow>
+            <Eyebrow>Persönlich. Durchdacht. Für dich.</Eyebrow>
             <h2 id="included-heading">
-              What six months
+              Was in sechs Monaten
               <br />
-              <em>together includes.</em>
+              <em>für dich drin ist.</em>
             </h2>
           </div>
           <p>
-            The fee pays for an ongoing coaching relationship: time to
-            understand you, review your progress and adjust the plan with you.
+            Dein Coaching bedeutet laufende persönliche Begleitung: Zeit für
+            dich, regelmäßiges Feedback und einen Plan, den wir gemeinsam
+            weiterentwickeln.
           </p>
         </div>
         <div className="commitments">
@@ -453,12 +448,6 @@ function Included() {
             </article>
           ))}
         </div>
-        {site.conceptPreview && (
-          <p className="package-note">
-            Concept package · Service commitments are proposed and subject to
-            Anna’s confirmation before launch.
-          </p>
-        )}
       </div>
     </section>
   );
@@ -469,15 +458,15 @@ function Roadmap() {
     <section className="roadmap section" aria-labelledby="roadmap-heading">
       <div className="container">
         <div className="roadmap-heading reveal">
-          <Eyebrow>Room to learn. Time to grow.</Eyebrow>
+          <Eyebrow>Raum zum Lernen. Zeit zum Wachsen.</Eyebrow>
           <h2 id="roadmap-heading">
-            Six months.
+            Sechs Monate.
             <br />
-            <em>A foundation for what’s next.</em>
+            <em>Eine Basis für deinen weiteren Weg.</em>
           </h2>
           <p>
-            A coaching process, with room for your pace. There’s no timetable
-            for a particular weight-loss result.
+            Wir richten uns nach deinem Tempo und deinem Alltag. Wie sich dein
+            Gewicht entwickelt, ist individuell.
           </p>
         </div>
         <div className="timeline">
@@ -501,23 +490,25 @@ function Stories() {
     <section className="stories section" aria-labelledby="stories-heading">
       <div className="container">
         <div className="stories-heading reveal">
-          <Eyebrow>The kind of change we’re working towards</Eyebrow>
+          <Eyebrow>Was sich im Alltag verändern kann</Eyebrow>
           <h2 id="stories-heading">
-            Progress can sound <em>like this.</em>
+            Fortschritt hat <em>viele Stimmen.</em>
           </h2>
-          <p>Fictional examples of a more flexible approach to fitness.</p>
         </div>
         <div className="quote-grid">
-          {site.testimonials.quotes.map((quote) => (
-            <figure className="quote-card reveal" key={quote}>
+          {site.testimonials.quotes.map(({ name, quote }) => (
+            <figure className="quote-card reveal" key={name}>
               <span className="quote-mark" aria-hidden="true">
                 “
               </span>
               <blockquote>{quote}</blockquote>
-              <figcaption>{site.testimonials.label}</figcaption>
+              <figcaption>
+                <span className="quote-name">{name}</span>
+              </figcaption>
             </figure>
           ))}
         </div>
+        <p className="stories-note">{site.testimonials.label}</p>
       </div>
     </section>
   );
@@ -540,26 +531,21 @@ function About() {
             loading="lazy"
             decoding="async"
           />
-          {site.images.anna.isPlaceholder && (
-            <figcaption>
-              Stock model · Placeholder for Anna’s own photograph
-            </figcaption>
-          )}
           <span className="photo-signature" aria-hidden="true">
-            A little support.
+            An deiner Seite.
             <br />
-            <em>A stronger you.</em>
+            <em>Für ein stärkeres Du.</em>
           </span>
         </figure>
         <div className="about-copy reveal">
-          <Eyebrow>Meet Anna</Eyebrow>
+          <Eyebrow>Über Anna</Eyebrow>
           <h2 id="about-heading">
-            Your plan matters.
+            Dein Plan zählt.
             <br />
             <em>
-              So does the person
+              Wer dich begleitet,
               <br />
-              beside you.
+              auch.
             </em>
           </h2>
           {site.about.paragraphs.map((paragraph) => (
@@ -588,37 +574,37 @@ function Investment() {
     >
       <div className="container investment-grid">
         <div className="reveal">
-          <Eyebrow light>An investment in your everyday</Eyebrow>
+          <Eyebrow light>Eine Investition in dich</Eyebrow>
           <h2 id="investment-heading">
-            Not just a plan.
+            Ein Plan für dich.
             <br />
-            <em>A person in your corner.</em>
+            <em>Jemand an deiner Seite.</em>
           </h2>
           <p>
-            Six months to build strength, explore what works for you and
-            practise a more sustainable way forward—with individual attention
-            all the way.
+            Sechs Monate, um stärker zu werden, deinen Weg zu finden und
+            Routinen zu üben, die zu deinem Leben passen. Mit persönlicher
+            Begleitung von Anfang an.
           </p>
         </div>
         <div className="investment-offer reveal">
           <p className="offer-name">{site.offer.name}</p>
           <p className="offer-duration">
-            {site.offer.duration} of 1:1 coaching
+            {site.offer.duration} persönliches 1:1-Coaching
           </p>
           <p className="offer-price">
             {site.offer.price} <span>{site.offer.priceQualifier}</span>
           </p>
           <div className="investment-divider" />
           <p className="offer-summary">
-            Personalised training & nutrition guidance
+            Individuelles Training & Ernährungsbegleitung
             <br />
-            Regular reviews, coaching calls & direct support
+            Regelmäßiges Feedback, Gespräche & direkte Begleitung
           </p>
           <BookLink light />
           <p className="investment-micro">
-            Your intro call is free and separate from paid coaching.
+            Dein Erstgespräch ist kostenlos und vom Coaching getrennt.
             <br />
-            No obligation to join.
+            Du gehst keine Kaufverpflichtung ein.
           </p>
         </div>
       </div>
@@ -634,11 +620,11 @@ function GettingStarted() {
     >
       <div className="container">
         <div className="centered-heading reveal">
-          <Eyebrow>A conversation is a good place to start</Eyebrow>
+          <Eyebrow>Alles beginnt mit einem Gespräch</Eyebrow>
           <h2 id="start-heading">
-            A small first step.
+            Ein kleiner erster Schritt.
             <br />
-            <em>Let’s take it together.</em>
+            <em>Gehen wir ihn gemeinsam.</em>
           </h2>
         </div>
         <div className="start-grid">
@@ -661,16 +647,16 @@ function FAQ() {
     <section className="faq section" id="faq" aria-labelledby="faq-heading">
       <div className="container faq-grid">
         <div className="reveal">
-          <Eyebrow>A little more clarity</Eyebrow>
+          <Eyebrow>Was du noch wissen möchtest</Eyebrow>
           <h2 id="faq-heading">
-            Good questions.
+            Gute Fragen.
             <br />
-            <em>Honest answers.</em>
+            <em>Ehrliche Antworten.</em>
           </h2>
           <p>
-            Still wondering if this is right for you?
+            Du bist noch unsicher, ob das zu dir passt?
             <br />
-            We can talk it through on your intro call.
+            Das können wir in Ruhe im Erstgespräch klären.
           </p>
           <BookLink />
         </div>
@@ -737,16 +723,17 @@ function Booking() {
     const fields = new FormData(form);
     const value = (name: FieldName) => String(fields.get(name) ?? "").trim();
     const nextErrors: Partial<Record<FieldName, string>> = {};
-    if (!value("name")) nextErrors.name = "Please enter your name.";
+    if (!value("name")) nextErrors.name = "Bitte gib deinen Namen ein.";
     else if (value("name").length > 80)
-      nextErrors.name = "Please use 80 characters or fewer.";
+      nextErrors.name = "Bitte verwende höchstens 80 Zeichen.";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value("email")))
-      nextErrors.email = "Please enter a valid email address.";
-    if (!value("goal")) nextErrors.goal = "Please choose a primary goal.";
+      nextErrors.email = "Bitte gib eine gültige E-Mail-Adresse ein.";
+    if (!value("goal"))
+      nextErrors.goal = "Bitte wähle dein wichtigstes Ziel aus.";
     if (!value("setting"))
-      nextErrors.setting = "Please choose where you would prefer to train.";
+      nextErrors.setting = "Bitte wähle aus, wo du trainieren möchtest.";
     if (value("note").length > site.booking.noteMaxLength)
-      nextErrors.note = `Please use ${site.booking.noteMaxLength} characters or fewer.`;
+      nextErrors.note = `Bitte verwende höchstens ${site.booking.noteMaxLength} Zeichen.`;
     setErrors(nextErrors);
     const firstError = fieldOrder.find((field) => nextErrors[field]);
     if (firstError) {
@@ -778,48 +765,48 @@ function Booking() {
     >
       <div className="container booking-grid">
         <div className="booking-copy reveal">
-          <Eyebrow>Start with a conversation</Eyebrow>
+          <Eyebrow>Lernen wir uns kennen</Eyebrow>
           <h2 id="booking-heading">
-            Let’s find a plan
+            Finden wir einen Plan,
             <br />
-            <em>you can build on.</em>
+            <em>auf dem du aufbauen kannst.</em>
           </h2>
           <p>
-            Tell me a little about your goals. Then we can explore what support
-            could look like for you.
+            Erzähl mir ein wenig von deinen Zielen. Gemeinsam schauen wir,
+            welche Begleitung zu dir passen könnte.
           </p>
           <div className="call-details">
             <Icon name="calendar" />
             <div>
               <strong>
-                A free {site.offer.introMinutes}-minute intro call
+                Kostenloses Erstgespräch · {site.offer.introMinutes} Minuten
               </strong>
-              <span>A chance to ask questions. No obligation to join.</span>
+              <span>Zeit für deine Fragen. Ganz unverbindlich.</span>
             </div>
           </div>
           <div className="booking-price">
             <span>{site.offer.name}</span>
             <strong>
-              {site.offer.duration} of 1:1 coaching · {site.offer.price}{" "}
-              {site.offer.priceQualifier}
+              {site.offer.duration} persönliches 1:1-Coaching ·{" "}
+              {site.offer.price} {site.offer.priceQualifier}
             </strong>
           </div>
           <p className="booking-personal">
-            You don’t need a perfect starting point.
+            Du musst nicht perfekt vorbereitet sein.
             <br />
-            Just a little curiosity about what’s possible.
+            Nur neugierig darauf, was möglich ist.
           </p>
           <Icon name="leaf" className="booking-leaf" />
         </div>
         <div className="booking-panel reveal">
           <div className="form-mode">
             <span className="demo-pill">
-              {bookingUrl ? "Intro-call details" : "Demo booking"}
+              {bookingUrl ? "Dein Erstgespräch" : "Dein erster Schritt"}
             </span>
             <p>
               {bookingUrl
-                ? "Continue to our external scheduling provider after this step. These form details are not sent or saved."
-                : "Preview only. No details are sent or saved, and no call is booked."}
+                ? "Im nächsten Schritt öffnest du die externe Terminbuchung. Deine Formularangaben werden hier weder gesendet noch gespeichert."
+                : "Demomodus: Deine Angaben bleiben im Browser. Es wird noch kein Termin gebucht."}
             </p>
           </div>
           {complete ? (
@@ -834,13 +821,13 @@ function Booking() {
               </span>
               <h3>
                 {bookingUrl
-                  ? "Ready to choose a time."
-                  : "Your preview is complete."}
+                  ? "Jetzt kannst du einen Termin wählen."
+                  : "So einfach wäre der erste Schritt."}
               </h3>
               <p>
                 {bookingUrl
-                  ? "Your form details have been cleared. Open the scheduling provider to see available times and book your free intro call. No appointment has been booked here."
-                  : "The demo validated your entries and cleared the form. Nothing was sent or saved, and no appointment or email was created."}
+                  ? "Deine Angaben wurden aus dem Formular entfernt. Öffne die Terminbuchung, um verfügbare Zeiten zu sehen und dein kostenloses Erstgespräch zu buchen. Hier wurde noch kein Termin reserviert."
+                  : "Deine Eingaben wurden geprüft und das Formular wurde geleert. In dieser Demo werden keine Angaben gesendet oder gespeichert. Es wurde weder ein Termin gebucht noch eine E-Mail verschickt."}
               </p>
               {bookingUrl && (
                 <a
@@ -848,30 +835,32 @@ function Booking() {
                   href={bookingUrl}
                   rel="noreferrer"
                 >
-                  Choose a call time
+                  Termin auswählen
                 </a>
               )}
               {!bookingUrl && (
                 <p className="success-note">
-                  Live scheduling will be available once Anna connects her
-                  booking provider.
+                  Die direkte Terminwahl wird verfügbar, sobald die Buchung
+                  eingerichtet ist.
                 </p>
               )}
               <button className="text-link" type="button" onClick={resetDemo}>
-                {bookingUrl ? "Return to the form" : "Try the demo again"}
+                {bookingUrl
+                  ? "Zurück zum Formular"
+                  : "Noch einmal ausprobieren"}
               </button>
             </div>
           ) : (
             <form onSubmit={onSubmit} noValidate>
               {Object.keys(errors).length > 0 && (
                 <p className="form-error-summary" role="alert">
-                  Please check the highlighted fields below.
+                  Bitte prüfe die markierten Felder.
                 </p>
               )}
               <div className="form-row">
                 <div className="form-field">
                   <label htmlFor="booking-name">
-                    Your name <span>(required)</span>
+                    Dein Name <span>(Pflichtfeld)</span>
                   </label>
                   <input
                     id="booking-name"
@@ -882,13 +871,13 @@ function Booking() {
                     required
                     aria-invalid={!!errors.name}
                     aria-describedby={errors.name ? "name-error" : undefined}
-                    placeholder="What should I call you?"
+                    placeholder="Wie darf ich dich nennen?"
                   />
                   {errorFor("name")}
                 </div>
                 <div className="form-field">
                   <label htmlFor="booking-email">
-                    Email address <span>(required)</span>
+                    E-Mail-Adresse <span>(Pflichtfeld)</span>
                   </label>
                   <input
                     id="booking-email"
@@ -899,14 +888,14 @@ function Booking() {
                     required
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "email-error" : undefined}
-                    placeholder="you@example.com"
+                    placeholder="du@beispiel.de"
                   />
                   {errorFor("email")}
                 </div>
               </div>
               <div className="form-field">
                 <label htmlFor="booking-goal">
-                  What’s your primary goal? <span>(required)</span>
+                  Was ist dein wichtigstes Ziel? <span>(Pflichtfeld)</span>
                 </label>
                 <div className="select-wrap">
                   <select
@@ -918,19 +907,19 @@ function Booking() {
                     aria-describedby={errors.goal ? "goal-error" : undefined}
                   >
                     <option value="" disabled>
-                      Choose what matters most to you
+                      Was möchtest du erreichen?
                     </option>
                     <option value="weight-management">
-                      Weight loss with a flexible approach
+                      Mit mehr Flexibilität abnehmen
                     </option>
                     <option value="strength">
-                      Build strength and gym confidence
+                      Stärker und sicherer trainieren
                     </option>
                     <option value="consistency">
-                      Build a more consistent routine
+                      Eine feste Routine entwickeln
                     </option>
                     <option value="exploring">
-                      Explore what’s right for me
+                      Meinen passenden Weg finden
                     </option>
                   </select>
                   <Icon name="chevron" />
@@ -939,7 +928,7 @@ function Booking() {
               </div>
               <div className="form-field">
                 <label htmlFor="booking-setting">
-                  Where would you like to train? <span>(required)</span>
+                  Wo möchtest du trainieren? <span>(Pflichtfeld)</span>
                 </label>
                 <div className="select-wrap">
                   <select
@@ -953,12 +942,12 @@ function Booking() {
                     }
                   >
                     <option value="" disabled>
-                      Choose your preferred setting
+                      Wähle deinen Trainingsort
                     </option>
-                    <option value="gym">At a gym</option>
-                    <option value="home">At home</option>
-                    <option value="both">A mix of home and gym</option>
-                    <option value="unsure">I’m not sure yet</option>
+                    <option value="gym">Im Fitnessstudio</option>
+                    <option value="home">Zu Hause</option>
+                    <option value="both">Zu Hause und im Studio</option>
+                    <option value="unsure">Das weiß ich noch nicht</option>
                   </select>
                   <Icon name="chevron" />
                 </div>
@@ -966,7 +955,7 @@ function Booking() {
               </div>
               <div className="form-field">
                 <label htmlFor="booking-note">
-                  Anything else you’d like to share? <span>(optional)</span>
+                  Was möchtest du mir noch mitgeben? <span>(freiwillig)</span>
                 </label>
                 <textarea
                   id="booking-note"
@@ -975,11 +964,11 @@ function Booking() {
                   maxLength={site.booking.noteMaxLength}
                   aria-invalid={!!errors.note}
                   aria-describedby={`note-hint${errors.note ? " note-error" : ""}`}
-                  placeholder="A little about your schedule or what you’re hoping for…"
+                  placeholder="Zum Beispiel etwas über deinen Alltag oder deine Wünsche …"
                 />
                 <p className="field-hint" id="note-hint">
-                  Up to {site.booking.noteMaxLength} characters. Please leave
-                  out medical or other sensitive information.
+                  Höchstens {site.booking.noteMaxLength} Zeichen. Bitte keine
+                  medizinischen oder anderen sensiblen Angaben.
                 </p>
                 {errorFor("note")}
               </div>
@@ -988,11 +977,12 @@ function Booking() {
                 className="button button-primary form-submit"
               >
                 {bookingUrl
-                  ? "Continue to scheduling"
-                  : "Try the intro-call demo"}
+                  ? "Weiter zur Terminwahl"
+                  : "Kennenlernen ausprobieren"}
               </button>
               <p className="form-privacy">
-                Free call · No obligation · <a href="/privacy">Privacy draft</a>
+                Kostenlos · Unverbindlich ·{" "}
+                <a href="/datenschutz">Datenschutz</a>
               </p>
             </form>
           )}
@@ -1009,26 +999,22 @@ function Footer() {
         <div className="footer-top">
           <Wordmark inverse />
           <p>
-            Stronger. More confident.
+            Stärker. Selbstbewusster.
             <br />
-            <em>More you.</em>
+            <em>Mehr du.</em>
           </p>
           <a className="footer-top-link" href="#top">
-            Back to top
+            Nach oben
           </a>
         </div>
         <div className="footer-bottom">
           <p>
             © {new Date().getFullYear()} {site.brand} {site.byline}.
-            {site.conceptPreview && " A fictional coaching concept."}
+            {site.conceptPreview && " · Website-Demo"}
           </p>
-          <nav aria-label="Legal navigation">
-            <a href="/privacy">
-              Privacy <span>(draft)</span>
-            </a>
-            <a href="/legal">
-              Legal <span>(draft)</span>
-            </a>
+          <nav aria-label="Rechtliche Informationen">
+            <a href="/datenschutz">Datenschutz</a>
+            <a href="/impressum">Impressum</a>
           </nav>
         </div>
       </div>
@@ -1038,116 +1024,111 @@ function Footer() {
 
 function LegalPage({ privacy }: { privacy: boolean }) {
   useEffect(() => {
-    document.title = `${privacy ? "Privacy" : "Legal"} draft | Form & Flourish by Anna`;
+    document.title = `${privacy ? "Datenschutz" : "Impressum"} | Form & Flourish von Anna`;
   }, [privacy]);
   return (
     <main id="main" className="legal-page container">
-      <Eyebrow>Concept preview · Incomplete draft</Eyebrow>
+      <Eyebrow>Rechtliche Informationen · Entwurf</Eyebrow>
       <h1>
-        {privacy ? "Privacy information" : "Legal information"}
-        <em> A working draft.</em>
+        {privacy ? "Datenschutz" : "Impressum"}
+        <em> Informationen zur Demo.</em>
       </h1>
       <p className="legal-callout">
-        This is an unfinished concept page. It is not a completed legal notice
-        or a claim of legal compliance. Business-specific details and applicable
-        requirements must be confirmed before a real launch.
+        Diese Website ist eine Design-Demo. Die folgenden Angaben sind ein
+        Entwurf und müssen vor einem echten Geschäftsbetrieb um die
+        tatsächlichen Unternehmens- und Verarbeitungsdaten ergänzt werden.
       </p>
       {privacy ? (
         <>
-          <h2>What happens in this preview</h2>
+          <h2>Deine Angaben im Formular</h2>
           <p>
-            The demo intro-call form validates entries in your browser, then
-            clears them after a successful submission. It does not send those
-            entries to a server, save them to browser storage, create an
-            appointment or send email. Unsubmitted text remains in the open form
-            until it is cleared or the page is reloaded; your browser may also
-            offer its own autofill.
+            Das Kennenlernformular prüft deine Eingaben ausschließlich im
+            Browser und leert sich nach erfolgreicher Prüfung. Es übermittelt
+            keine Angaben an einen Server, speichert sie nicht im
+            Browserspeicher und löst weder eine Terminbuchung noch eine E-Mail
+            aus. Nicht abgeschickter Text bleibt bis zum Leeren oder Neuladen im
+            geöffneten Formular. Dein Browser kann unabhängig davon eine eigene
+            automatische Vervollständigung anbieten.
           </p>
+          <h2>Technische Bereitstellung</h2>
           <p>
-            This implementation does not add analytics, advertising trackers or
-            application cookies. Fonts and photographs are served as local site
-            assets. The development server or a future hosting provider may
-            process ordinary technical request data, such as IP addresses, in
-            its own logs.
+            Diese Website bindet keine Analysewerkzeuge, Werbetracker oder
+            eigenen Anwendungscookies ein. Schriften und Bilder werden lokal mit
+            der Website ausgeliefert. Der Entwicklungsserver oder ein späterer
+            Hostinganbieter kann gewöhnliche technische Zugriffsdaten, etwa
+            IP-Adressen, in eigenen Protokollen verarbeiten.
           </p>
-          <h2>External scheduling</h2>
+          <h2>Externe Terminbuchung</h2>
           <p>
-            No booking provider is configured in this concept. If a provider is
-            connected later, scheduling opens through an outbound link. The form
-            fields on this site are not included in that link. The provider may
-            collect information under its own privacy terms, which must be
-            reviewed and explained before live use.
+            Aktuell ist kein Buchungsanbieter verbunden. Wird später ein
+            Anbieter eingerichtet, öffnet die Terminwahl über einen externen
+            Link. Die Angaben aus diesem Formular werden nicht an den Link
+            angehängt. Für die Verarbeitung beim jeweiligen Anbieter gelten
+            dessen Informationen, die vor einer echten Nutzung geprüft und hier
+            berücksichtigt werden müssen.
           </p>
-          <h2>Information still needed</h2>
+          <h2>Vor dem Betrieb zu ergänzen</h2>
           <ul>
             <li>
-              Controller’s legal identity, business address and a working
-              privacy contact.
+              Verantwortliche Stelle, Geschäftsanschrift und erreichbarer
+              Datenschutzkontakt.
             </li>
             <li>
-              Actual hosting and form/scheduling providers, processing purposes,
-              legal bases and recipients.
+              Tatsächliche Hosting-, Formular- und Buchungsanbieter, Zwecke,
+              Rechtsgrundlagen und Empfänger.
             </li>
             <li>
-              Retention periods, deletion process, international transfers and
-              any required contractual safeguards.
+              Speicherfristen, Löschverfahren, mögliche Drittlandübermittlungen
+              und erforderliche Vereinbarungen.
             </li>
             <li>
-              Applicable rights, request process, supervisory authority and any
-              required consent handling.
+              Betroffenenrechte, Kontaktwege, zuständige Aufsichtsbehörde und
+              gegebenenfalls Einwilligungsverfahren.
             </li>
           </ul>
           <p>
-            Please do not enter medical, financial or other sensitive
-            information in this preview form.
+            Bitte gib im Demoformular keine medizinischen, finanziellen oder
+            anderen sensiblen Informationen an.
           </p>
         </>
       ) : (
         <>
-          <h2>About this concept</h2>
+          <h2>Angaben zum Angebot</h2>
           <p>
-            Form & Flourish by Anna is a fictional premium coaching website. No
-            surname, location, professional qualification, business history,
-            address, contact email, registration number or tax treatment has
-            been invented.
+            Form & Flourish von Anna ist eine fiktive Coaching-Marke für diese
+            Website-Demo. Die Flourish-Methode wird als sechsmonatiges
+            1:1-Coaching für insgesamt 4.000 € gezeigt. Das kostenlose
+            Erstgespräch ist davon getrennt und begründet keine
+            Kaufverpflichtung.
           </p>
-          <h2>Proposed offer</h2>
+          <h2>Unternehmensangaben</h2>
           <p>
-            The Flourish Method is presented as six months of individual
-            coaching for €4,000 total. The service commitments, capacity, final
-            consumer price and tax wording require confirmation before trading.
-            The free intro call is separate from paid coaching and does not
-            create a purchase obligation.
+            Die tatsächliche Anbieteridentität, Rechtsform, ladungsfähige
+            Anschrift, Kontaktmöglichkeiten sowie gegebenenfalls Register- und
+            Steuerangaben sind noch zu ergänzen. Es wurden keine geschäftlichen
+            Kontaktdaten oder Qualifikationen erfunden.
           </p>
-          <h2>Business and commercial details still needed</h2>
-          <ul>
-            <li>
-              Verified business identity, legal form, address, contact details
-              and applicable registration or tax information.
-            </li>
-            <li>Verified coaching qualifications and scope of services.</li>
-            <li>
-              Agreed contract, payment, cancellation, refund and any applicable
-              withdrawal terms.
-            </li>
-            <li>
-              Review of the proposed brand, domain and trademark availability.
-            </li>
-            <li>
-              Completed privacy information and applicable local legal notices.
-            </li>
-          </ul>
-          <h2>Imagery and illustrative stories</h2>
+          <h2>Leistungen und Konditionen</h2>
           <p>
-            The photographs show stock models, not Anna or clients. The stories
-            are original fictional examples, explicitly labelled on the page.
-            They must be replaced with consented, verified reviews or hidden
-            before a real business launch.
+            Vor einem echten Start sind die dargestellten Leistungen und
+            Kapazitäten, der endgültige Gesamtpreis und dessen steuerliche
+            Formulierung sowie Vertrags-, Zahlungs-, Kündigungs-, Erstattungs-
+            und gegebenenfalls Widerrufsbedingungen zu bestätigen. Die
+            Verfügbarkeit des Markennamens ist nicht geprüft.
+          </p>
+          <h2>Bilder und Beispielstimmen</h2>
+          <p>
+            Die Bilder stammen von Pexels und zeigen Fotomodelle. Sie sind keine
+            echten Porträts von Anna oder Kundinnen und bedeuten keine
+            Empfehlung durch die abgebildeten Personen. Die Stimmen von Anna,
+            Sophia und Sarah sind erfundene Beispiele für die Demo. Vor einem
+            echten Geschäftsstart sind sie durch freigegebene echte Erfahrungen
+            zu ersetzen oder auszublenden.
           </p>
         </>
       )}
       <a href="/" className="button button-primary">
-        Return to the website
+        Zurück zur Startseite
       </a>
     </main>
   );
@@ -1156,15 +1137,16 @@ function LegalPage({ privacy }: { privacy: boolean }) {
 function NotFound() {
   return (
     <main id="main" className="legal-page container">
-      <Eyebrow>A little detour</Eyebrow>
+      <Eyebrow>Ein kleiner Umweg</Eyebrow>
       <h1>
-        Let’s get you <em>back on track.</em>
+        Hier geht’s <em>wieder weiter.</em>
       </h1>
       <p>
-        That page isn’t here. You can explore the coaching from the home page.
+        Diese Seite ist nicht verfügbar. Auf der Startseite erfährst du alles
+        über das Coaching.
       </p>
       <a href="/" className="button button-primary">
-        Back to home
+        Zur Startseite
       </a>
     </main>
   );
@@ -1192,7 +1174,9 @@ export default function App() {
         });
       }
     });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [isHome]);
 
   useEffect(() => {
@@ -1233,12 +1217,14 @@ export default function App() {
             <Booking />
           </main>
           <div className="mobile-booking">
-            <span>Free 20-minute intro call</span>
-            <BookLink>Let’s talk</BookLink>
+            <span>20 Minuten · Kostenlos</span>
+            <BookLink>Erstgespräch</BookLink>
           </div>
         </>
-      ) : path === "/privacy" || path === "/legal" ? (
-        <LegalPage privacy={path === "/privacy"} />
+      ) : ["/datenschutz", "/impressum", "/privacy", "/legal"].includes(
+          path,
+        ) ? (
+        <LegalPage privacy={path === "/datenschutz" || path === "/privacy"} />
       ) : (
         <NotFound />
       )}
