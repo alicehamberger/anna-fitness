@@ -57,24 +57,24 @@ export const site = {
   },
   images: {
     hero: {
-      src: "/images/training.jpg",
-      alt: "Eine Frau trainiert mit Kurzhanteln in einem Fitnessstudio",
-      width: 1100,
-      height: 1650,
+      src: "/images/training-daylight.webp",
+      alt: "Eine Frau beim Langhanteltraining in einem hellen Studio",
+      width: 1800,
+      height: 1200,
     },
     anna: {
-      src: "/images/coach-placeholder.jpg",
-      alt: "Eine Frau beim Krafttraining mit Kurzhanteln",
-      width: 1000,
-      height: 1500,
+      src: "/images/coach-natural.webp",
+      alt: "Eine lächelnde Frau beim Aufwärmen im Fitnessstudio",
+      width: 1200,
+      height: 1800,
       // Bildherkunft bleibt dokumentiert, ohne Bildunterschrift im Layout.
       isPlaceholder: true,
     },
     lifestyle: {
-      src: "/images/everyday-food.jpg",
-      alt: "Eine bunte Mahlzeit mit Gemüse und Quinoa",
-      width: 900,
-      height: 600,
+      src: "/images/kitchen-everyday.webp",
+      alt: "Eine Frau bereitet in ihrer Küche eine Mahlzeit zu",
+      width: 1100,
+      height: 750,
     },
   },
   hero: {

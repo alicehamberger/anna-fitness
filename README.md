@@ -80,16 +80,20 @@ Der vollständige Quellcode liegt auf [GitHub: alicehamberger/anna-fitness](http
 
 Die lokal gespeicherten Fotografien stammen von Pexels und verwenden die [Pexels-Lizenz](https://www.pexels.com/license/). Abgebildete Personen empfehlen diese Demo nicht.
 
-| Datei                                 | Fotografie und Quelle                                                                                                     |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `public/images/training.jpg`          | Joshua Brown – [Trainingsaufnahme](https://www.pexels.com/photo/a-woman-working-out-at-a-gym-13197590/)                   |
-| `public/images/coach-placeholder.jpg` | Joshua Brown – [Frau mit Kurzhanteln](https://www.pexels.com/photo/a-woman-holding-dumbbells-13197592/)                   |
-| `public/images/everyday-food.jpg`     | Ella Olsson – [Gemüse und Quinoa](https://www.pexels.com/photo/flat-lay-photography-of-vegetable-salad-on-plate-1640777/) |
+Die beiden Trainingsfotos zeigen dieselbe Frau in derselben Studioserie bei Tageslicht. Die Küchenaufnahme ergänzt den Alltagsschwerpunkt. Die Bilder wurden für die Website verkleinert und als WebP gespeichert; Gesicht und Körper wurden nicht verändert.
+
+| Datei | Fotografie und Quelle |
+| ----- | --------------------- |
+| `public/images/training-daylight.webp` | Anastasia Shuraeva – [Langhanteltraining](https://www.pexels.com/photo/a-strong-woman-lifting-a-barbell-4944312/) |
+| `public/images/coach-natural.webp` | Anastasia Shuraeva – [Lächeln beim Aufwärmen](https://www.pexels.com/photo/photograph-of-a-woman-stretching-while-smiling-4943919/) |
+| `public/images/kitchen-everyday.webp` | Kamaji Ogino – [Kochen zu Hause](https://www.pexels.com/photo/woman-cooking-lunch-in-light-kitchen-5094661/) |
 
 DM Sans und DM Serif Display werden als lokale WOFF2-Dateien verwendet. Die unveränderten englischen SIL-Open-Font-Lizenztexte liegen in `public/fonts/`. Beim Seitenbesuch werden keine Schriften oder Bilder von Drittanbietern nachgeladen.
 
 ## Prüfung
 
 Build und Lint prüfen TypeScript, Produktionsausgabe und Codequalität. Die ursprüngliche englische Fassung wurde im Browser für Desktop und Mobilgeräte geprüft. Für die deutsche Überarbeitung wurden Texte, Seitenpfade, Medien und der erzeugte Build zusätzlich statisch geprüft; eine erneute visuelle Browserprüfung war ohne Browsersteuerung nicht verfügbar.
+
+Beim Austausch der Fotografien wurden die Bildausschnitte anhand der bestehenden Bildgrößen für Desktop und Mobilgeräte geprüft. Die drei optimierten Bilder werden lokal ausgeliefert.
 
 Für die Calendly-Anbindung wurden der aktive, kostenfreie 20-Minuten-Termin, die deutsche Sprache, die Google-Meet-Verbindung und die übernommenen Verfügbarkeiten über Calendly bestätigt. Die Verfügbarkeitsabfrage für den 19.–26. November 2026 lieferte 80 buchbare Startzeiten. Diese Zeiten werden nicht in der Website gespeichert; der eingebettete Kalender lädt sie jeweils aktuell. Die eigentliche Terminbuchung und E-Mail-Zustellung wurden nicht durch einen Testtermin ausgelöst.
